@@ -306,9 +306,16 @@ section {
     text-shadow: 2px 2px 5px var(--dark-gray);
     letter-spacing: 1px;
     text-align: center;
-    border-bottom: 3px solid var(--accent-orange);
     padding-bottom: 10px;
-    display: inline-block;
+}
+
+#blog .blog-subtitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5rem;
+    color: var(--dark-gray);
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
 }
 
 #blog .blog-post {
