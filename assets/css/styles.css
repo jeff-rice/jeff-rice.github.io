@@ -300,6 +300,17 @@ section {
     color: var(--highlight-white);
 }
 
+#blog .blog-title {
+    font-size: 3rem;
+    color: (--primary-blue);
+    text-shadow: 2px 2px 5px var(--dark-gray);
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 3px solid var(--accent-orange);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
 #blog .blog-post {
     background-color: var(--highlight-white);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
