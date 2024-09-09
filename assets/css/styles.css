@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+
+:root {
+    --primary-blue: #00539C;
+    --accent-orange: #FF6F3C;
+    --neutral-gray: #E5E5E5;
+    --dark-gray: #333333;
+    --highlight-white: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;    
+}
+
+body {
+    font-size: 16pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--neutral-gray);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    color: var(--primary-blue);
+}
+
+.nav-link {
+    font-weight: bold;
+}
+
+header {
+    background: radial-gradient(circle at center, var(--neutral-gray), var(--primary-blue), var(--dark-gray));
+    width: 100vw;
+    color: var(--dark-gray);
+    text-align: center;
+    padding: 20px 0;
+}
+
+header img {
+    margin: 0;
+    padding: 10px 0;
+}
+
+header p {
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--highlight-white);
+    text-shadow: 2px 2px 5px var(--dark-gray);
+}
+
+header h1 {
+    font-family: 'Mooli', sans-serif;
+    text-shadow: 2px 2px 5px var(--dark-gray);
+    font-weight: bold;
+    color: var(--highlight-white);
+}
+
+nav.navbar {
+    background-color: var(--dark-gray);
+}
+
+nav.navbar a {
+    color: var(--highlight-white);
+}
+
+nav.navbar a:hover {
+    color: var(--accent-orange);
+}
+
+button.btn {
+    background-color: var(--accent-orange);
+    color: var(--highlight-white);
+}
+
+button.btn:hover {
+    background-color: var(--primary-blue);
+}
+
+#logo {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+}
+
+.nav-bar-collapse {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.nav-item {
+    padding: 5px 20px;
+}
+
+.nav-link,
+.dropdown-item {
+    font-size: 1.75rem;
+}
+
+#philosophyTitle {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+ol,
+ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* Add spacing between sections */
+section {
+    margin-bottom: 40px;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+}
+
+.sectionTitle i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: var(--primary-blue);
+}
+
+#philosophyLink {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.divider {
+    border-top: 2px solid var(--primary-blue);
+    margin: 20px 0;
+}
+
+.skillsTitle {
+    text-align: center;
+}
+
+.splash-container {
+    display: none;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#splash-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.splash-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--highlight-white);
+}
+
+.splash-header {
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px var(--dark-gray);
+}
+
+.splash-tagline {
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.splash-btn {
+    font-size: 1.75rem;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background-color: var(--primary-blue);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.splash-btn:hover {
+    background-color: var(--highlight-white);
+    color: var(--dark-gray);
+}
+
+/* Ensure the main content is not visible when the splash page is displayed */
+#main-content {
+    display: none;
+}
+
+#philosophyPage {
+    color: #333;
+    position: relative;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+#philosophyPage h2,
+#philosophyPage p {
+    color: #333;
+}
+
+#scheduling-tool {
+    height: 100vh;
+    width: 90%;
+    overflow: auto;
+}
+
+#pricing {
+    padding: 60px 0;
+}
+
+#pricing .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--dark-gray);
+}
+
+#pricing .pricing-card {
+    background-color: var(--highlight-white);
+    border: 1px solid var(--neutral-gray);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#pricing .pricing-card.highlighted {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#pricing .pricing-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+#pricing .price {
+    font-size: 24px;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+}
+
+#pricing .features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+#pricing .feature li {
+    margin-bottom: 10px;
+}
+
+#pricing .btn-cta {
+    background-color: var(--primary-blue);
+    color: var(--highlight-white);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#pricing .btn-cta:hover {
+    background-color: var(--dark-gray);
+    color: var(--highlight-white);
+}
+
+#blog .blog-post {
+    background-color: var(--highlight-white);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary-blue);
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+#blog .blog-post-tags {
+    margin-top: 1em;
+}
+
+#blog .tag {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: var(--highlight-white);
+    padding: 0.3em 0.6em;
+    margin-right: 0.5em;
+    border-radius: 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+#blog .tag:hover {
+    background-color: var(--dark-gray);
+}
+
+#blog .blog-post h2,
+h5 {
+    text-align: center;
+}
+
+#blog .blog-post-metadata {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 1em;
+    font-style: italic;
+}
+
+.video-item {
+    margin-bottom: 20px;
+}
+
+.video-item h3 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: var(--dark-gray);
+    color: var(--highlight-white);
+    padding: 20px 0;
+}
+
+footer a {
+    color: var(--neutral-gray);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h5 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.social-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.social-icon:hover {
+    color: var(--highlight-white);
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        text-align: center;
+    }
+
+    #blog .blog-post-tags {
+        text-align: center;
+    }
+
+    #blog .tag {
+        margin-top: 0.5em;
+    }
+}

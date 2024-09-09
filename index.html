@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="J.Rice Coaching - Elevate Your Game, One Pin at a Time!">
+  <meta name="keywords" content="Bowling, Coaching, J.Rice, Sports, Training">
+  <meta name="author" content="Jeff Rice">
+  <title>Jeff Rice Coaching</title>
+  <script src="https://kit.fontawesome.com/558450d71d.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+</head>
+
+<body>
+  <!-- Splash Page Content -->
+  <div class="splash-container">
+    <video autoplay muted loop id="splash-video">
+      <source src="./assets/videos/AddysonJrGold.mp4" type="video/mp4" />
+    </video>
+    <div class="splash-content">
+      <h1 class="splash-header">J.Rice Coaching</h1>
+      <p class="splash-tagline">Elevate Your Game, One Pin at a Time!</p>
+      <a href="#main-content" class="btn splash-btn">Start Your Journey</a>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <header>
+      <img src="assets/img/CoachingLogoNoBg.png" alt="Coaching Logo" height="200" width="200">
+    </header>
+    <div id="navbar"></div>
+    <script>
+      // Load the navbar.html content into the #navbar div using JavaScript
+      fetch("./components/navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    <div class="container">
+      <section id="welcomeMsg">
+        <h2>Welcome to J.Rice Coaching</h2>
+        <p>
+          Hey there, and welcome to where your bowling game gets a level up!
+          At J.Rice Coaching, I'm all about helping you improve every step of
+          the way. It's not just about getting strikes; it's about falling in
+          love with every roll, every pin, and every part of this amazing
+          sport. Whether you're starting out or aiming to up your game, I'm
+          here to help. Ready to turn those spares into strikes? Let's roll
+          into this exciting journey together!
+        </p>
+        <!-- <p>
+                Elevate your game with J.Rice Coaching. I focus not just on skills but a lifelong passion for the sport. My philosophy is rooted in holistic growth, fostering an environment where continuous learning and appreciation for bowling thrive. Whether you're a beginner or an experienced player, my coaching approach is tailored to unlock your full potential. Join me in this journey to master the lanes, one pin at a time.
+            </p> -->
+      </section>
+      <section id="aboutMsg">
+        <h2>A Bit About Me</h2>
+
+        <p>
+          My love for this sport started way back when I was just a kid, and
+          it's only grown stronger over the years. I've spent countless hours
+          on the lanes, learning every trick in the book and a few of my own.
+        </p>
+        <p>
+          But here's the thing - my biggest thrill isn't just knocking down
+          pins; it's sharing my passion and know-how with people like you.
+          Whether you're picking up a bowling ball for the first time or
+          you're looking to polish your skills, I'm here to guide you every
+          step of the way.
+        </p>
+        <p>
+          With a blend of traditional techniques and some fresh, fun
+          approaches, I promise our sessions will be as enjoyable as they are
+          informative. Bowling's not just a game for me - it's a way of
+          bringing people together and watching them grow, and that's what I
+          love most about coaching.
+        </p>
+        <p>
+          So, are you ready to start this awesome journey together? Let's hit
+          the lanes and elevate your game!
+        </p>
+      </section>
+      <section id="philosophyTeaser">
+        <h2>Peek Into My Coaching Philosophy</h2>
+        <p>
+          Ready for a little sneak peek into what makes J.Rice Coaching tick?
+          It's all about bringing out the best in you, in a way that's as fun
+          as it is effective. I'm not just about the how-tos of bowling; we're
+          about sparking that excitement and love for every roll and every
+          pin. Think of it as learning from a friend who's just as psyched
+          about bowling as you are.
+        </p>
+        <p>
+          My approach? It's about growing together, learning together, and
+          maybe sharing a few laughs along the way. I believe that everyone's
+          journey in bowling is unique, and that's what makes it so exciting.
+          From first-time bowlers to more advanced bowlers, I tailor my
+          coaching to fit you, your style, and your goals.
+        </p>
+        <p>
+          Curious to know more? Dive into the full scoop of our philosophy
+          <a href="./pages/philosophy.html" id="philosophyLink">right here</a>
+          and see how we can elevate your game. Let's roll!
+        </p>
+      </section>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script>
+    // Load the navbar.html content into the #navbar div using JavaScript
+    fetch("./components/footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
