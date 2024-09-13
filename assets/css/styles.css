@@ -233,7 +233,6 @@ section {
     text-align: center;
     margin-top: 10px;
 }
-
 /* Ensure the main content is not visible when the splash page is displayed */
 #main-content {
     display: none;
@@ -355,6 +354,32 @@ h5 {
     color: #666;
     margin-bottom: 1em;
     font-style: italic;
+}
+
+#coachingServices .services {
+    list-style: none;
+}
+
+#coachingServices .service-category {
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+    padding: 5px 0;
+}
+
+#coachingServices .servicesSublist {
+    list-style: none;
+}
+
+#coachingServices .services-info {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--dark-gray);
+}
+
+#coachingServices #serviceButton {
+    display: block;
+    margin: 0 auto 20px;
+    
 }
 
 .video-item {
