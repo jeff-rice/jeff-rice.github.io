@@ -439,4 +439,10 @@ footer a:hover {
     #blog .tag {
         margin-top: 0.5em;
     }
+
+    #serviceButton {
+        display: block;
+        margin: 0 auto 20px;
+        
+    }
 }
