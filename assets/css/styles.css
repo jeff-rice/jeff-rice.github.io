@@ -218,7 +218,7 @@ section {
 
 .page-title {
     font-size: 3rem;
-    color: (--primary-blue);
+    color: var(--primary-blue);
     text-shadow: 2px 2px 5px var(--dark-gray);
     letter-spacing: 1px;
     text-align: center;
