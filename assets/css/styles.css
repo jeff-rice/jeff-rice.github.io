@@ -356,6 +356,20 @@ h5 {
     font-style: italic;
 }
 
+.coaching-service-card {
+    background-color: var(--highlight-white);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.coching-service-card h2 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}   
+
 #coachingServices .services {
     list-style: none;
 }
