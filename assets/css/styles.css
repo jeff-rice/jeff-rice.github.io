@@ -356,6 +356,11 @@ h5 {
     font-style: italic;
 }
 
+#servicesIntro {
+    font-size: 1.2rem;
+    padding-top: 20px;
+}
+
 .coaching-service-card {
     background-color: var(--highlight-white);
     border-radius: 10px;
