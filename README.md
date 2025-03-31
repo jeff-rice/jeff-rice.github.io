@@ -87,7 +87,7 @@ The site is deployed on GitHub Pages and automatically updates when changes are 
 
 ## License
 
-© 2023 J.Rice Coaching. All Rights Reserved.
+© 2025 J.Rice Coaching. All Rights Reserved.
 
 ## Contact
 
