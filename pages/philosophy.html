@@ -4,17 +4,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeff Rice Coaching</title>
+  <meta name="description"
+    content="J.Rice Coaching Philosophy - Cultivating Lifelong Learners and Enthusiasts in Bowling">
+  <meta name="keywords" content="Bowling, Coaching, Philosophy, J.Rice, Sports, Training">
+  <meta name="author" content="Jeff Rice">
+  <title>Coaching Philosophy | Jeff Rice Coaching</title>
   <script src="https://kit.fontawesome.com/558450d71d.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+  <style>
+    /* Philosophy page specific styles */
+    #philosophyPage {
+      color: var(--dark-gray);
+    }
+
+    .philosophy-header {
+      background: linear-gradient(rgba(0, 83, 156, 0.8), rgba(0, 83, 156, 0.9)), url('/assets/img/bowling-lane-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .values-card {
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid var(--primary-blue);
+    }
+
+    .values-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .philosophy-quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.6;
+      padding: 2rem;
+      border-left: 4px solid var(--primary-blue);
+      background-color: rgba(0, 83, 156, 0.05);
+      margin: 2rem 0;
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+    }
+
+    /* Modified approach section - vertical timeline style without dots */
+    .coaching-approach {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .approach-item {
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .approach-content {
+      padding: 1.5rem;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      border-left: 4px solid var(--primary-blue);
+      transition: transform 0.3s ease;
+    }
+
+    .approach-content:hover {
+      transform: translateY(-5px);
+    }
+
+    .approach-step {
+      display: inline-block;
+      background-color: var(--primary-blue);
+      color: white;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .pillar-section {
+      background-color: var(--neutral-gray);
+      padding: 4rem 0;
+    }
+
+    .pillar-card {
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+      background-color: white;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .bg-accent {
+      background-color: var(--accent-orange);
+    }
+
+    .text-accent {
+      color: var(--accent-orange);
+    }
+  </style>
 </head>
 
 <body id="philosophyPage">
-  <header class="bg-primary text-white text-center py-5">
+  <header>
     <img src="/assets/img/CoachingLogoNoBg.png" alt="Coaching Logo" height="auto" width="250">
   </header>
+
   <div id="navbar"></div>
   <script>
     // Load the navbar.html content into the #navbar div using JavaScript
@@ -22,62 +132,250 @@
       .then((response) => response.text())
       .then((data) => {
         document.getElementById("navbar").innerHTML = data;
+        // Initialize any Bootstrap components AFTER the navbar is loaded
+        if (typeof bootstrap !== 'undefined') {
+          // Initialize dropdowns
+          var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+          var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl)
+          })
+        }
       });
   </script>
 
-  <h2 class="page-title">My Coaching Philosophy</h2>
+  <!-- Philosophy Hero Section -->
+  <section class="philosophy-header text-center text-white">
+    <div class="container">
+      <h1 class="display-4 fw-bold animate__animated animate__fadeIn">My Coaching Philosophy</h1>
+      <p class="lead mt-4 animate__animated animate__fadeIn animate__delay-1s">Building a Foundation for Bowling Success
+      </p>
+    </div>
+  </section>
 
-  <main class="container my-5">
-    <section class="mb-5">
-      <h2 class="text-center mb-4">Philosophy Statement</h2>
-      <p class="lead text-center">Cultivating Lifelong Learners and Enthusiasts in Bowling</p>
-    </section>
-    <section class="mb-5">
-      <h2 class="text-center mb-4">Philosophy</h2>
-      <p class="text-center">
-        I believe in nurturing a love for bowling by fostering an environment where individuals continuously learn,
-        grow, and develop a deeper appreciation for the sport. My coaching philosophy centers around long-term, holistic
-        development that empowers players to become lifelong participants and advocates of bowling.
-      </p>
-    </section>
-    <hr class="divider my-5" />
-    <section class="mb-5">
-      <div class="text-center mb-4">
-        <i class="fa-solid fa-puzzle-piece fa-3x mb-2 text-primary"></i>
-        <h2>Core Values</h2>
-      </div>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <h3>Lifelong Learning</h3>
-          <p>
-            Encourage continuous growth and learning by promoting curiosity and a desire to improve both on and off the
-            lanes.
-          </p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h3>Inclusive Environment</h3>
-          <p>
-            Establish a supportive, inclusive, and respectful atmosphere where everyone, regardless of their skill
-            level, feels valued and is encouraged to express their thoughts and ideas.
-          </p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h3>Feedback and Reflection</h3>
-          <p>
-            Provide constructive feedback and encourage self-reflection to promote self-awareness and continuous
-            learning and improvement.
-          </p>
+  <main class="container py-5">
+    <!-- Introduction Section -->
+    <section class="mb-5 animate__animated animate__fadeIn">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card border-0 shadow">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="card-title h3 text-center mb-4">Philosophy Statement</h2>
+              <div class="philosophy-quote text-center">
+                "I believe in nurturing a love for bowling by fostering an environment where individuals continuously
+                learn,
+                grow, and develop a deeper appreciation for the sport."
+              </div>
+              <p>
+                My coaching philosophy centers around long-term, holistic development that empowers players to become
+                lifelong
+                participants and advocates of bowling. I strive to create an engaging, supportive atmosphere where every
+                individual can develop their skills while building confidence and a passion for the game.
+              </p>
+              <p>
+                More than teaching techniques, I aim to instill values that will serve bowlers well both on the lanes
+                and in life:
+                perseverance, discipline, focus, and the joy of continuous improvement. By balancing technical
+                instruction with
+                personal growth, my goal is to help each bowler reach their full potential.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section>
-      <h2 class="text-center mb-4">Conclusion</h2>
-      <p class="text-center">
-        My goal is to be more than a technical coach; I strive to be a mentor, guide, and supporter, helping individuals
-        realize their potential and fostering a lifelong love for bowling. I am committed to ensuring that each time
-        someone steps on or off the lanes, they leave with new knowledge, experiences, and a deeper appreciation for the
-        game of bowling.
-      </p>
+
+    <!-- Core Values Section -->
+    <section class="mb-5">
+      <h2 class="text-center mb-5 animate__animated animate__fadeIn">The Three Pillars of My Coaching Philosophy</h2>
+      <div class="row g-4">
+        <div class="col-md-4 animate__animated animate__fadeInUp">
+          <div class="card values-card border-0 shadow h-100">
+            <div class="card-body text-center p-4">
+              <div class="value-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h3 class="card-title h4">Lifelong Learning</h3>
+              <p class="card-text">
+                I encourage continuous growth and learning by promoting curiosity and a desire to improve both on and
+                off the
+                lanes. Every practice session and game is an opportunity to learn something new about the sport and
+                yourself.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+          <div class="card values-card border-0 shadow h-100">
+            <div class="card-body text-center p-4">
+              <div class="value-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 class="card-title h4">Inclusive Environment</h3>
+              <p class="card-text">
+                I establish a supportive, inclusive, and respectful atmosphere where everyone, regardless of their skill
+                level, feels valued and is encouraged to express their thoughts and ideas. Bowling is a sport for
+                everyone.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+          <div class="card values-card border-0 shadow h-100">
+            <div class="card-body text-center p-4">
+              <div class="value-icon">
+                <i class="fas fa-comment-dots"></i>
+              </div>
+              <h3 class="card-title h4">Feedback and Reflection</h3>
+              <p class="card-text">
+                I provide constructive feedback and encourage self-reflection to promote self-awareness and continuous
+                learning and improvement. Understanding your game is the key to consistent progress.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Approach Section - Redesigned without blue dots -->
+    <section class="mb-5">
+      <h2 class="text-center mb-5 animate__animated animate__fadeIn">My Coaching Approach</h2>
+      <div class="coaching-approach">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="approach-item animate__animated animate__fadeIn">
+              <div class="approach-content">
+                <h3 class="h5"><span class="approach-step">1</span>Understand Your Goals</h3>
+                <p>
+                  Every bowler has unique goals and aspirations. I take the time to understand what you want to achieve,
+                  whether
+                  it's improving your average, learning a new technique, or simply enjoying the game more.
+                </p>
+              </div>
+            </div>
+
+            <div class="approach-item animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+              <div class="approach-content">
+                <h3 class="h5"><span class="approach-step">2</span>Assess Your Style</h3>
+                <p>
+                  I analyze your current technique and approach to identify strengths to build upon and areas for
+                  improvement.
+                  Your individual style is important, and I work with it rather than trying to force a one-size-fits-all
+                  technique.
+                </p>
+              </div>
+            </div>
+
+            <div class="approach-item animate__animated animate__fadeIn" style="animation-delay: 0.4s;">
+              <div class="approach-content">
+                <h3 class="h5"><span class="approach-step">3</span>Develop a Plan</h3>
+                <p>
+                  Together, we create a customized development plan that addresses your specific needs and goals. This
+                  plan
+                  evolves as you progress, ensuring continuous growth and improvement.
+                </p>
+              </div>
+            </div>
+
+            <div class="approach-item animate__animated animate__fadeIn" style="animation-delay: 0.6s;">
+              <div class="approach-content">
+                <h3 class="h5"><span class="approach-step">4</span>Learn Through Practice</h3>
+                <p>
+                  I believe in the power of deliberate practice. We'll focus on specific skills and techniques, using
+                  targeted
+                  drills and exercises to build muscle memory and consistency.
+                </p>
+              </div>
+            </div>
+
+            <div class="approach-item animate__animated animate__fadeIn" style="animation-delay: 0.8s;">
+              <div class="approach-content">
+                <h3 class="h5"><span class="approach-step">5</span>Review and Adjust</h3>
+                <p>
+                  Regular feedback sessions help us track progress and make necessary adjustments to your development
+                  plan. I use
+                  video analysis when appropriate to provide clear visual feedback on your technique.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching Methods -->
+    <section class="pillar-section mb-5 rounded">
+      <div class="container">
+        <h2 class="text-center mb-5 animate__animated animate__fadeIn">My Teaching Methods</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp">
+            <div class="pillar-card">
+              <i class="fas fa-video fa-3x mb-3 text-primary"></i>
+              <h3 class="h5">Video Analysis</h3>
+              <p class="mb-0">
+                Using video feedback to provide visual guides and comparisons for more effective learning and technique
+                refinement.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+            <div class="pillar-card">
+              <i class="fas fa-check-square fa-3x mb-3 text-primary"></i>
+              <h3 class="h5">Targeted Drills</h3>
+              <p class="mb-0">
+                Custom exercises focused on specific aspects of your game to build muscle memory and consistency.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+            <div class="pillar-card">
+              <i class="fas fa-brain fa-3x mb-3 text-primary"></i>
+              <h3 class="h5">Mental Coaching</h3>
+              <p class="mb-0">
+                Techniques to improve focus, manage pressure, and maintain a positive mindset during play.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+            <div class="pillar-card">
+              <i class="fas fa-chalkboard-teacher fa-3x mb-3 text-primary"></i>
+              <h3 class="h5">Lane Strategy</h3>
+              <p class="mb-0">
+                Learning to read lane conditions and make strategic adjustments for optimal performance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="mb-5 animate__animated animate__fadeIn">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card border-0 shadow">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="card-title h3 text-center mb-4">My Promise to You</h2>
+              <p class="text-center">
+                My goal is to be more than a technical coach; I strive to be a mentor, guide, and supporter, helping
+                individuals
+                realize their potential and fostering a lifelong love for bowling. I am committed to ensuring that each
+                time
+                someone steps on or off the lanes, they leave with new knowledge, experiences, and a deeper appreciation
+                for the
+                game of bowling.
+              </p>
+              <div class="text-center mt-4">
+                <a href="/pages/contact.html" class="btn btn-primary btn-lg">Start Your Bowling Journey</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -89,6 +387,45 @@
       .then((data) => {
         document.getElementById("footer").innerHTML = data;
       });
+
+    // Add animation triggers on scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to check if element is in viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      // Function to add animation classes when elements come into view
+      function animateOnScroll() {
+        const animateElements = document.querySelectorAll('.animate__animated:not(.animate__fadeIn)');
+
+        animateElements.forEach(element => {
+          if (isInViewport(element)) {
+            const animationClass = element.classList.contains('animate__fadeInLeft')
+              ? 'animate__fadeInLeft'
+              : element.classList.contains('animate__fadeInRight')
+                ? 'animate__fadeInRight'
+                : element.classList.contains('animate__fadeInUp')
+                  ? 'animate__fadeInUp'
+                  : 'animate__fadeIn';
+
+            element.classList.add(animationClass);
+          }
+        });
+      }
+
+      // Initial check
+      animateOnScroll();
+
+      // Check on scroll
+      window.addEventListener('scroll', animateOnScroll);
+    });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

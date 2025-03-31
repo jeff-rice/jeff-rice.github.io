@@ -4,10 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeff Rice Coaching</title>
+  <meta name="description" content="J.Rice Coaching - Bowling Tips, Stories, and Insights from Coach Jeff Rice">
+  <meta name="keywords" content="Bowling, Coaching, Blog, J.Rice, Bowling Tips, Bowling Techniques">
+  <meta name="author" content="Jeff Rice">
+  <title>Blog | Jeff Rice Coaching</title>
   <script src="https://kit.fontawesome.com/558450d71d.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
 </head>
 
@@ -22,286 +26,480 @@
       .then((response) => response.text())
       .then((data) => {
         document.getElementById("navbar").innerHTML = data;
+        // Initialize any Bootstrap components AFTER the navbar is loaded
+        if (typeof bootstrap !== 'undefined') {
+          // Initialize dropdowns
+          var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+          var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl)
+          })
+        }
       });
   </script>
-  <main>
 
-    <div class="container">
-      <section id="blog">
-        <h2 class="page-title">Life on the Bowling Lane</h2>
-        <h3 class="page-subtitle">Stories, Tips, and Lessons from the Lanes</h3>
-        <div class="blog-post">
-          <h2>Rolling Through Indiana: Milestones and Memories with My Daughter</h2>
-          <h5 class="blog-author">Written by: Jeff Rice - USBC Silver Level Coach</h5>
-          <h5 class="blog-post-metadata">Published: Nov 14, 2024</h5>
-          <p>
-            One of the greatest joys in my coaching and personal life has been watching my daughter, Addyson, grow up immersed in the world of bowling. From her earliest days on the lanes with bumpers to the impressive accomplishments she’s earned as a young competitor, her journey has been full of memories that remind me why I love this sport—and why I’m committed to sharing it with others.
-          </p>
-          <p>
-            Addyson has earned her place in the bowling community. She’s a two-time Sectional Champion for high school girls, a two-time Jr. Gold qualifier, KYSTS plastic ball champion, and an all-city team honoree for the past two years. Now, as the captain of her high school team, she leads others with the same determination and love for the game that I’ve seen in her from the start. But beyond the titles and trophies, it’s the moments we’ve shared on the road and at the lanes that have defined her journey.
-          </p>
-          <p>
-            We’ve traveled all over Indiana for tournaments, with some stops in Kentucky, each trip an adventure filled with excitement, preparation, and that unique anticipation only a bowling tournament can bring. These journeys have given us opportunities to explore new places and face different competitors, adding a layer of experience that’s been invaluable in her development.
-          </p>
-          <p>
-            One trip, however, stands out more than most. We traveled to Elkhart, Indiana, for a grueling eliminator-style tournament. The format was demanding: six games to start, with cuts after every round—six games, then four, then two, all the way to a final step-ladder for the top four. Addyson bowled her heart out, advancing through every cut, but by the later rounds, the fatigue was visible. She’d glance at me between frames with a look that said, I’m ready for this to be over. But each time, they’d call the names for the next round, and there she was, still in the running.
-          </p>
-          <p>
-            She pushed through that day, finishing in an impressive third place. Although it’s not an experience she likes to revisit, it’s a testament to her resilience. She and her friend, who was also competing, joked afterward that they’d experienced a “mental breakdown” together due to the exhaustion—a bonding moment that sealed their friendship. That day may have been physically and mentally challenging, but it’s one of those stories we look back on with a mix of pride and humor.
-          </p>
-          <p>
-            These experiences have been more than milestones in her competitive journey; they’ve been powerful moments in our relationship and in her growth as an athlete. I’m proud of her accomplishments, but even more, I’m proud of her determination, her willingness to push through tough days, and her love for the sport.
-          </p>
-          <p>
-            As her high school coach for the past three years, I feel privileged to be part of her journey and to see how far she’s come. Each tournament, each road trip, and each frame she bowls are memories I’ll cherish. It’s my hope that her journey inspires other young bowlers to embrace the sport with the same passion and resilience that she brings to the lanes.
-          </p>
-          <div class="blog-post-tags">
-            <span class="tag">BowlingJourney</span>
-            <span class="tag">BowlingMemories</span>
-            <span class="tag">SportsParenting</span>
+  <!-- Blog Hero Section -->
+  <section class="blog-hero py-5 bg-light">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeIn">Life on the Bowling Lane</h1>
+      <p class="lead mt-3 mb-4 animate__animated animate__fadeIn animate__delay-1s">Stories, Tips, and Lessons from the
+        Lanes</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search articles..." aria-label="Search articles">
+            <button class="btn btn-primary" type="button">Search</button>
           </div>
         </div>
-        <div class="blog-post">
-          <h2>The Hidden Complexity of Bowling: A Sport of Precision and Skill</h2>
-          <h5 class="blog-author">Written by: Jeff Rice - USBC Bronze Level Coach</h5>
-          <h5 class="blog-post-metadata">Published: Jul 3, 2024</h5>
-          <p>
-            When you think of bowling, you might picture a casual night out with friends, rented shoes, and the
-            occasional strike. However, beneath the surface of this seemingly straightforward game lies a world of
-            precision, strategy, and technical skill that rivals any other sport. Bowling is far more than just rolling
-            a ball down a lane; it’s a complex dance of physics, mechanics, and human ingenuity.
-
-          </p>
-          <h2 class="blogSubHeading">The Anatomy of a Bowling Ball</h2>
-          <p>
-            To the untrained eye, a bowling ball may appear as a simple, heavy sphere. In reality, each ball is a marvel
-            of engineering. Modern bowling balls are designed with various core shapes and coverstock materials, each
-            affecting how the ball behaves on the lane.
-
-          <ul>
-            <li>
-              Core Design: The core, or the innermost part of the ball, can vary greatly in shape and density. These
-              variations influence the ball’s rotation and trajectory. Some cores are symmetrical, providing a smooth,
-              predictable roll, while asymmetrical cores can create more dynamic movement. For instance, a bowling ball
-              with an asymmetrical core can have a differential of RG (radius of gyration), which determines how quickly
-              the ball starts to hook and its overall shape on the lane.
-            </li>
-
-            <li>
-              Coverstock Material: The outer layer of the ball, known as the coverstock, is made from materials like
-              urethane, reactive resin, or particle. Each type interacts differently with the lane’s surface and oil
-              patterns, affecting the ball’s grip and hook potential. Reactive resin coverstocks, for example, are
-              designed to increase the friction between the ball and the lane, enabling a stronger hook in response to
-              the bowler’s release.
-            </li>
-          </ul>
-          </p>
-          <h2 class="blogSubHeading">The Science of Oil Patterns</h2>
-          <p>
-            Bowling lanes are not just flat, smooth surfaces. They are meticulously oiled in various patterns to
-            challenge bowlers and add a layer of complexity to the game. These oil patterns can vary in length, volume,
-            and distribution, influencing how the ball behaves as it travels down the lane.
-          </p>
-          <p>
-            House Patterns vs. Sport Patterns: Recreational bowlers often encounter house patterns, which are more
-            forgiving and designed to guide the ball toward the pins. In contrast, sport patterns used in competitive
-            bowling are much more challenging, requiring precise technique and strategy. A typical house pattern has
-            more oil in the middle of the lane and less on the outside, helping guide the ball toward the center. Sport
-            patterns, on the other hand, have more evenly distributed oil, demanding greater accuracy and control.
-          </p>
-          <p>
-            Adjusting to Conditions: Experienced bowlers must read the oil pattern and adjust their approach, including
-            their ball choice, angle of attack, and release technique. This adaptability is a critical skill in bowling,
-            turning a simple roll into a calculated move. Understanding how the oil pattern breaks down over time and
-            knowing when to switch balls or alter lines can significantly impact performance.
-          </p>
-          <h2 class="blogSubHeading">The Role of Technique and Form</h2>
-          <p>
-            Just as in golf or tennis, proper technique in bowling is essential for success. Every aspect of a bowler’s
-            form, from their stance to their follow-through, impacts the ball’s performance.
-          </p>
-          <p>
-            Footwork and Timing: Consistent footwork and timing are crucial. Bowlers must coordinate their steps with
-            their arm swing to generate power and accuracy. The approach typically involves a series of steps (usually
-            four or five) that culminate in a smooth, controlled slide at the foul line. Each step and the timing of the
-            release must be synchronized to ensure a powerful and accurate shot.
-          </p>
-          <p>
-            Release and Rotation: The way a bowler releases the ball affects its rotation and trajectory. A
-            well-executed release can create the desired hook, allowing the ball to enter the pocket at an optimal angle
-            for strikes. Bowlers manipulate their wrist position and finger release to control the ball’s axis of
-            rotation and the amount of revs (revolutions per minute), which are critical for creating the right hook and
-            entry angle.
-          </p>
-          <h2 class="blogSubHeading">Technology and Innovation</h2>
-          <p>
-            The bowling world is continually evolving with advances in technology. From high-tech bowling balls and
-            shoes to sophisticated lane machines that apply oil patterns with precision, technology plays a significant
-            role in modern bowling.
-          <ul>
-            <li>
-              Training Tools: Tools like video analysis and computer simulations help bowlers refine their techniques
-              and understand their performance better. Motion capture systems can track a bowler’s movements,
-              providing detailed feedback on their approach, release, and ball motion.
-            </li>
-            <li>
-              Data-Driven Decisions: Competitive bowlers often rely on data and analytics to make informed decisions
-              about ball selection and lane strategy, bringing a level of scientific rigor to the game. Advanced
-              scoring systems and ball tracking technologies can analyze shot data in real-time, helping bowlers
-              adjust their strategies based on lane conditions and performance metrics.
-            </li>
-          </ul>
-          </p>
-          <h2 class="blogSubHeading">The Mental Game</h2>
-          <p>
-            Bowling is as much a mental game as it is a physical one. Focus, concentration, and mental resilience are
-            crucial components of a bowler’s skill set.
-          <ul>
-            <li>
-              Staying Focused: Maintaining focus over the course of a game or tournament is essential. Bowlers must stay
-              mentally sharp, blocking out distractions and staying in the moment. This mental discipline helps them
-              execute their techniques consistently under pressure.
-            </li>
-            <li>
-              Handling Pressure: The ability to perform under pressure is a hallmark of great bowlers. Whether it's a
-              crucial shot in the tenth frame or a pivotal moment in a tournament, the best bowlers can stay calm and
-              deliver their best performance when it matters most.
-            </li>
-          </ul>
-          </p>
-          <h2 class="blogSubHeading">Conclusion</h2>
-          <p>
-            Bowling is much more than a casual pastime; it is a sport of intricate details and high-level skill. The
-            next time you find yourself at the bowling alley, take a moment to appreciate the depth of knowledge and
-            precision that goes into each roll of the ball. Whether you’re a seasoned pro or a casual bowler,
-            understanding the technical aspects of the game can enhance your appreciation and enjoyment of this
-            fascinating sport. So, next time you lace up those bowling shoes, remember that you are stepping into a
-            world where physics, strategy, and skill converge to create the perfect strike.
-          </p>
-          <div class="blog-post-tags">
-            <span class="tag">Bowling</span>
-            <span class="tag">Bowling Tips</span>
-            <span class="tag">ScienceBehindBowling</span>
-          </div>
-        </div>
-        <div class="blog-post">
-          <h2>Bowling in the Fast Lane: Navigating the Ever-Changing World of Bowling Tech</h2>
-          <h5 class="blog-author">Written by: Jeff Rice - USBC Bronze Level Coach</h5>
-          <h5 class="blog-post-metadata">Published: Jan 13, 2023</h5>
-          <p>
-            In the dynamic world of bowling, keeping pace with technological advancements can be quite a challenge. It's
-            like trying to catch a speeding train - new developments are constantly emerging. Imagine this: almost every
-            month, we're seeing a fresh batch of bowling balls from various manufacturers. There's more - changes in the
-            oil used on lanes, innovative gear for better ball release, wrist support, and perfecting the slide. It's a
-            whirlwind of innovation, and you might wonder, "When does it all stop?"
-          </p>
-          <p>
-            Well, here's the scoop: it doesn't. The bowling arena is evolving, getting fiercely competitive by the year.
-            Take the two-handed bowling style, for example. It's reshaping the game, and ball companies are hustling to
-            adapt. Is this style superior? That's a debate for another day. A recent piece in 'The Bowler's Journal'
-            showcased four new balls as of January 2023: Roto Grip Exotic Gem, Motiv Jackal Ambush, Storm Revenant, and
-            Storm Absolute.
-          </p>
-          <p>
-            Each ball offers something unique, but here's the kicker - not every ball is a one-size-fits-all solution.
-            I, for instance, am a Hammer bowling ball enthusiast, mainly because that's my comfort zone. My daughter, on
-            the other hand, swears by Storm balls. The point is, with technology racing ahead, you've got to do some
-            digging to find what clicks for you. The best tip I can offer? Head over to your local Pro Shop at the
-            bowling center. Strike up a chat with the experts there. Be upfront about what you're looking for, and don't
-            shy away from honesty. Many bowlers think they've got their needs all figured out, but often, they might not
-            fully grasp their own game. And that's okay! Your pro shop professional is there to guide you.
-          </p>
-          <div class="blog-post-tags">
-            <span class="tag">Bowling Technology</span>
-            <span class="tag">Bowling Tips</span>
-          </div>
-        </div>
-        <div class="blog-post">
-          <h2>Striking Success: Your Guide to Becoming a Better Bowler</h2>
-          <h5 class="blog-author">Written by: Jeff Rice - USBC Bronze Level Coach</h5>
-          <h5 class="blog-post-metadata">Published: December 4, 2023</h5>
-          <p>
-            You've probably noticed a bunch of folks on social media asking the same question: "How do I level up my
-            bowling game?" It's a common query, and you'll get a different answer depending on who you ask. But
-            before we dive into the nitty-gritty, let's nail down what you're really after.
-          </p>
-          <p>
-            I could tell you to just get better at throwing the ball, or I could suggest dropping a grand on all-new
-            bowling gear, hoping for a miracle improvement. But honestly, it doesn't quite work like that.
-          </p>
-          <p>
-            First off, let's get one thing straight: becoming a better bowler doesn't happen overnight. It's like
-            any sport; it takes a ton of practice and repetition. Depending on where you're starting, you might even
-            see your scores dip and feel a bit lost before you start seeing real progress. It's part of the game.
-          </p>
-          <p>
-            You'll hit roadblocks and moments when you're like, "What am I doing?" But remember what the great
-            Michael Jordan once said,
-          <blockquote class="mjQuote">"Obstacles don't have to stop you. If you run into a wall, don't turn around
-            and give up. Figure out how to climb it, go through it, or work around it."</blockquote>
-          </p>
-          <p>
-            Now, back to the main question: How do you kickstart this journey of improvement? Here are a few key
-            things to set you on the right path:
-          </p>
-          <ul>
-            <li>Get a Coach Who Knows the Game:
-              <ul>
-                <li>
-                  Seriously, a good coach can make a world of difference. They've got the experience and tricks up
-                  their
-                  sleeves to give you personalized advice and help you tackle those bowling challenges.
-                </li>
-              </ul>
-            </li>
-            <li>Chat Up the Pro Shop Pros:
-              <ul>
-                <li>
-                  Pay a visit to your local bowling alley's pro shop and have a chat with the experts there. They'll
-                  hook you up with the right gear that suits your style and preferences. Having the right equipment
-                  is a game-changer.
-                </li>
-              </ul>
-            </li>
-            <li>Be Ready to Learn and Practice... A Lot:
-              <ul>
-                <li>
-                  Improvement is all about practice and learning from your slip-ups. So, be prepared to pu in the
-                  hours, practice religiously, and keep at it consistently.
-                </li>
-              </ul>
-            </li>
-            <li>Above all... Enjoy the Experience:
-              <ul>
-                <li>
-                  Bowling is a fun social activity, so relax and enjoy the process. Focus on having a good time with
-                  friends and family and when you are ready to become more competitive, have patience while you get
-                  there.
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <p>
-            In a nutshell, the journey to becoming a better bowler isn't a quick fix or a shortcut. It's a trek that
-            requires commitment, some pro guidance, and a hefty dose of self-improvement. So, lace up those
-            bowling shoes, grab your ball, and let's roll into this adventure towards bowling greatness!
-          </p>
-          <div class="blog-post-tags">
-            <span class="tag">Coaching</span>
-            <span class="tag">Bowling Skills</span>
-            <span class="tag">Sports Advice</span>
-            <span class="tag">Bowling for Beginners</span>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
+  </section>
 
+  <!-- Blog Categories -->
+  <section class="py-3 bg-white border-bottom">
+    <div class="container">
+      <div class="d-flex justify-content-center flex-wrap">
+        <a href="#" class="btn btn-outline-primary m-1">All Posts</a>
+        <a href="#" class="btn btn-outline-primary m-1">Coaching Tips</a>
+        <a href="#" class="btn btn-outline-primary m-1">Tournament Stories</a>
+        <a href="#" class="btn btn-outline-primary m-1">Technique</a>
+        <a href="#" class="btn btn-outline-primary m-1">Equipment</a>
+      </div>
+    </div>
+  </section>
 
+  <main class="py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Main Blog Content -->
+        <div class="col-lg-8">
+          <!-- Featured Post -->
+          <div class="card mb-5 border-0 shadow blog-featured-post animate__animated animate__fadeIn">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <div class="blog-featured-image">
+                  <img src="/assets/img/AddysonEarnedPlaques.jpg"
+                    class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Featured post image"
+                    onerror="this.src='https://via.placeholder.com/600x400?text=Bowling+Journey'">
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="card-body d-flex flex-column h-100">
+                  <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-primary me-2">Featured</span>
+                    <small class="text-muted">November 14, 2024</small>
+                  </div>
+                  <h2 class="card-title h3">Rolling Through Indiana: Milestones and Memories</h2>
+                  <p class="card-text flex-grow-1">One of the greatest joys in my coaching and personal life has been
+                    watching my daughter, Addyson, grow up immersed in the world of bowling. From her earliest days on
+                    the lanes with bumpers to the impressive accomplishments she's earned as a young competitor...</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <a href="#rolling-through-indiana" class="btn btn-primary">Read Full Article</a>
+                    <div>
+                      <span class="me-3"><i class="far fa-clock"></i> 5 min read</span>
+                      <span><i class="far fa-eye"></i> 234 views</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Individual Blog Posts -->
+          <article id="rolling-through-indiana"
+            class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
+            <div class="card-body">
+              <h2 class="blog-post-title">Rolling Through Indiana: Milestones and Memories</h2>
+              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <span class="text-muted"><i class="far fa-calendar-alt"></i> November 14, 2024</span>
+                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Silver Level Coach</span>
+                </div>
+                <div class="blog-post-share">
+                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+
+              <div class="blog-featured-image mb-4 text-center">
+                <img src="/assets/img/AddysonEarnedPlaques.jpg" class="img-fluid rounded" alt="Featured image"
+                  style="max-height: 400px; object-fit: contain;"
+                  onerror="this.src='https://via.placeholder.com/800x400?text=Bowling+Journey'">
+              </div>
+
+              <div class="blog-content">
+                <p>
+                  One of the greatest joys in my coaching and personal life has been watching my daughter, Addyson, grow
+                  up immersed in the world of bowling. From her earliest days on the lanes with bumpers to the
+                  impressive accomplishments she's earned as a young competitor, her journey has been full of memories
+                  that remind me why I love this sport—and why I'm committed to sharing it with others.
+                </p>
+                <p>
+                  Addyson has earned her place in the bowling community. She's a two-time Sectional Champion for high
+                  school girls, a two-time Jr. Gold qualifier, KYSTS plastic ball champion, and an all-city team honoree
+                  for the past two years. Now, as the captain of her high school team, she leads others with the same
+                  determination and love for the game that I've seen in her from the start. But beyond the titles and
+                  trophies, it's the moments we've shared on the road and at the lanes that have defined her journey.
+                </p>
+                <p>
+                  We've traveled all over Indiana for tournaments, with some stops in Kentucky, each trip an adventure
+                  filled with excitement, preparation, and that unique anticipation only a bowling tournament can bring.
+                  These journeys have given us opportunities to explore new places and face different competitors,
+                  adding a layer of experience that's been invaluable in her development.
+                </p>
+                <p>
+                  One trip, however, stands out more than most. We traveled to Elkhart, Indiana, for a grueling
+                  eliminator-style tournament. The format was demanding: six games to start, with cuts after every
+                  round—six games, then four, then two, all the way to a final step-ladder for the top four. Addyson
+                  bowled her heart out, advancing through every cut, but by the later rounds, the fatigue was visible.
+                  She'd glance at me between frames with a look that said, I'm ready for this to be over. But each time,
+                  they'd call the names for the next round, and there she was, still in the running.
+                </p>
+                <p>
+                  She pushed through that day, finishing in an impressive third place. Although it's not an experience
+                  she likes to revisit, it's a testament to her resilience. She and her friend, who was also competing,
+                  joked afterward that they'd experienced a "mental breakdown" together due to the exhaustion—a bonding
+                  moment that sealed their friendship. That day may have been physically and mentally challenging, but
+                  it's one of those stories we look back on with a mix of pride and humor.
+                </p>
+                <p>
+                  These experiences have been more than milestones in her competitive journey; they've been powerful
+                  moments in our relationship and in her growth as an athlete. I'm proud of her accomplishments, but
+                  even more, I'm proud of her determination, her willingness to push through tough days, and her love
+                  for the sport.
+                </p>
+                <p>
+                  As her high school coach for the past three years, I feel privileged to be part of her journey and to
+                  see how far she's come. Each tournament, each road trip, and each frame she bowls are memories I'll
+                  cherish. It's my hope that her journey inspires other young bowlers to embrace the sport with the same
+                  passion and resilience that she brings to the lanes.
+                </p>
+              </div>
+
+              <div class="blog-post-tags mt-4">
+                <i class="fas fa-tags me-2"></i>
+                <a href="#" class="tag me-2">#BowlingJourney</a>
+                <a href="#" class="tag me-2">#BowlingMemories</a>
+                <a href="#" class="tag">#SportsParenting</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
+            <div class="card-body">
+              <h2 class="blog-post-title">The Hidden Complexity of Bowling: A Sport of Precision and Skill</h2>
+              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <span class="text-muted"><i class="far fa-calendar-alt"></i> July 3, 2024</span>
+                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Bronze Level Coach</span>
+                </div>
+                <div class="blog-post-share">
+                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+
+              <div class="blog-featured-image mb-4 text-center">
+                <img src="/assets/img/BowlingBallCoreXSection.jpg" class="img-fluid rounded" alt="Featured image"
+                  style="max-height: 400px; object-fit: contain;"
+                  onerror="this.src='https://via.placeholder.com/800x400?text=Hidden+Complexity'">
+              </div>
+
+              <div class="blog-content">
+                <p>
+                  When you think of bowling, you might picture a casual night out with friends, rented shoes, and the
+                  occasional strike. However, beneath the surface of this seemingly straightforward game lies a world of
+                  precision, strategy, and technical skill that rivals any other sport. Bowling is far more than just
+                  rolling
+                  a ball down a lane; it's a complex dance of physics, mechanics, and human ingenuity.
+                </p>
+
+                <h3 class="blogSubHeading">The Anatomy of a Bowling Ball</h3>
+                <p>
+                  To the untrained eye, a bowling ball may appear as a simple, heavy sphere. In reality, each ball is a
+                  marvel
+                  of engineering. Modern bowling balls are designed with various core shapes and coverstock materials,
+                  each
+                  affecting how the ball behaves on the lane.
+                </p>
+                <p>
+                  Core Design: The core, or the innermost part of the ball, can vary greatly in shape and density. These
+                  variations influence the ball's rotation and trajectory. Some cores are symmetrical, providing a
+                  smooth,
+                  predictable roll, while asymmetrical cores can create more dynamic movement.
+                </p>
+                <p>
+                  Coverstock Material: The outer layer of the ball, known as the coverstock, is made from materials like
+                  urethane, reactive resin, or particle. Each type interacts differently with the lane's surface and oil
+                  patterns, affecting the ball's grip and hook potential.
+                </p>
+
+                <div class="text-center my-4">
+                  <a href="#" class="btn btn-primary">Read Full Article</a>
+                </div>
+
+                <div class="blog-post-tags mt-4">
+                  <i class="fas fa-tags me-2"></i>
+                  <a href="#" class="tag me-2">#Bowling</a>
+                  <a href="#" class="tag me-2">#BowlingTips</a>
+                  <a href="#" class="tag">#ScienceBehindBowling</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
+            <div class="card-body">
+              <h2 class="blog-post-title">Striking Success: Your Guide to Becoming a Better Bowler</h2>
+              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <span class="text-muted"><i class="far fa-calendar-alt"></i> December 4, 2023</span>
+                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Bronze Level Coach</span>
+                </div>
+                <div class="blog-post-share">
+                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+
+              <div class="blog-featured-image mb-4 text-center">
+                <img src="/assets/img/coachingMoment.jpg" class="img-fluid rounded" alt="Featured image"
+                  style="max-height: 400px; object-fit: contain;"
+                  onerror="this.src='https://via.placeholder.com/800x400?text=Striking+Success'">
+              </div>
+
+              <div class="blog-content">
+                <p>
+                  You've probably noticed a bunch of folks on social media asking the same question: "How do I level up
+                  my
+                  bowling game?" It's a common query, and you'll get a different answer depending on who you ask. But
+                  before we dive into the nitty-gritty, let's nail down what you're really after.
+                </p>
+                <p>
+                  I could tell you to just get better at throwing the ball, or I could suggest dropping a grand on
+                  all-new
+                  bowling gear, hoping for a miracle improvement. But honestly, it doesn't quite work like that.
+                </p>
+                <p>
+                  First off, let's get one thing straight: becoming a better bowler doesn't happen overnight. It's like
+                  any sport; it takes a ton of practice and repetition. Depending on where you're starting, you might
+                  even
+                  see your scores dip and feel a bit lost before you start seeing real progress. It's part of the game.
+                </p>
+
+                <div class="text-center my-4">
+                  <a href="#" class="btn btn-primary">Read Full Article</a>
+                </div>
+
+                <div class="blog-post-tags mt-4">
+                  <i class="fas fa-tags me-2"></i>
+                  <a href="#" class="tag me-2">#Coaching</a>
+                  <a href="#" class="tag me-2">#BowlingSkills</a>
+                  <a href="#" class="tag me-2">#SportsAdvice</a>
+                  <a href="#" class="tag">#BowlingForBeginners</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
+            <div class="card-body">
+              <h2 class="blog-post-title">Bowling in the Fast Lane: Navigating the Ever-Changing World of Bowling Tech
+              </h2>
+              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <span class="text-muted"><i class="far fa-calendar-alt"></i> January 13, 2023</span>
+                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Bronze Level Coach</span>
+                </div>
+                <div class="blog-post-share">
+                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+
+              <div class="blog-featured-image mb-4 text-center">
+                <img src="/assets/img/new-balls-820-december2023.jpg" class="img-fluid rounded" alt="Featured image"
+                  style="max-height: 400px; object-fit: contain;"
+                  onerror="this.src='https://via.placeholder.com/800x400?text=Striking+Success'">
+              </div>
+
+              <div class="blog-content">
+                <p>
+                  In the dynamic world of bowling, keeping pace with technological advancements can be quite a
+                  challenge. It's
+                  like trying to catch a speeding train - new developments are constantly emerging. Imagine this: almost
+                  every
+                  month, we're seeing a fresh batch of bowling balls from various manufacturers. There's more - changes
+                  in the
+                  oil used on lanes, innovative gear for better ball release, wrist support, and perfecting the slide.
+                  It's a
+                  whirlwind of innovation, and you might wonder, "When does it all stop?"
+                </p>
+
+                <div class="text-center my-4">
+                  <a href="#" class="btn btn-primary">Read Full Article</a>
+                </div>
+
+                <div class="blog-post-tags mt-4">
+                  <i class="fas fa-tags me-2"></i>
+                  <a href="#" class="tag me-2">#BowlingTechnology</a>
+                  <a href="#" class="tag">#BowlingTips</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pagination -->
+          <nav aria-label="Blog pagination">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="blog-sidebar">
+            <!-- About Author -->
+            <div class="card mb-4 border-0 shadow">
+              <div class="card-body text-center">
+                <img src="/assets/img/CoachingLogoNoBg.png" alt="Jeff Rice" class="rounded-circle img-fluid mb-3"
+                  style="max-width: 150px;">
+                <h3 class="h4">Jeff Rice</h3>
+                <p class="text-muted">USBC Silver Level Coach</p>
+                <p>Sharing my passion for bowling through coaching, competition, and community.</p>
+                <div class="d-flex justify-content-center">
+                  <a href="#" class="btn btn-sm btn-outline-primary me-2">About Me</a>
+                  <a href="/pages/contact.html" class="btn btn-sm btn-primary">Book a Lesson</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular Posts -->
+            <div class="card mb-4 border-0 shadow">
+              <div class="card-header bg-primary text-white">
+                <h3 class="h5 mb-0">Popular Posts</h3>
+              </div>
+              <div class="card-body">
+                <div class="popular-post d-flex mb-3">
+                  <div class="flex-shrink-0">
+                    <img src="/assets/img/placeholder-blog-1.jpg" alt="Popular post" class="rounded" width="60"
+                      height="60" style="object-fit: cover;">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h4 class="h6 mb-1">Rolling Through Indiana: Milestones and Memories</h4>
+                    <p class="text-muted small mb-0">November 14, 2024</p>
+                  </div>
+                </div>
+                <div class="popular-post d-flex mb-3">
+                  <div class="flex-shrink-0">
+                    <img src="/assets/img/placeholder-blog-2.jpg" alt="Popular post" class="rounded" width="60"
+                      height="60" style="object-fit: cover;">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h4 class="h6 mb-1">The Hidden Complexity of Bowling</h4>
+                    <p class="text-muted small mb-0">July 3, 2024</p>
+                  </div>
+                </div>
+                <div class="popular-post d-flex">
+                  <div class="flex-shrink-0">
+                    <img src="/assets/img/placeholder-blog-3.jpg" alt="Popular post" class="rounded" width="60"
+                      height="60" style="object-fit: cover;">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h4 class="h6 mb-1">Striking Success: Your Guide to Becoming a Better Bowler</h4>
+                    <p class="text-muted small mb-0">December 4, 2023</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="card mb-4 border-0 shadow">
+              <div class="card-header bg-primary text-white">
+                <h3 class="h5 mb-0">Categories</h3>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Coaching Tips
+                    <span class="badge bg-primary rounded-pill">8</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Tournament Stories
+                    <span class="badge bg-primary rounded-pill">5</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Technique
+                    <span class="badge bg-primary rounded-pill">12</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Equipment
+                    <span class="badge bg-primary rounded-pill">7</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Personal Journey
+                    <span class="badge bg-primary rounded-pill">3</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="card mb-4 border-0 shadow">
+              <div class="card-header bg-primary text-white">
+                <h3 class="h5 mb-0">Stay Updated</h3>
+              </div>
+              <div class="card-body">
+                <p>Subscribe to get the latest bowling tips and stories delivered directly to your inbox.</p>
+                <form>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Your email address">
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Tags Cloud -->
+            <div class="card border-0 shadow">
+              <div class="card-header bg-primary text-white">
+                <h3 class="h5 mb-0">Popular Tags</h3>
+              </div>
+              <div class="card-body">
+                <div class="tags-cloud">
+                  <a href="#" class="tag-cloud-link">#Bowling</a>
+                  <a href="#" class="tag-cloud-link">#CoachingTips</a>
+                  <a href="#" class="tag-cloud-link">#BowlingTechnology</a>
+                  <a href="#" class="tag-cloud-link">#TournamentPrep</a>
+                  <a href="#" class="tag-cloud-link">#BowlingJourney</a>
+                  <a href="#" class="tag-cloud-link">#YouthBowling</a>
+                  <a href="#" class="tag-cloud-link">#BowlingFundamentals</a>
+                  <a href="#" class="tag-cloud-link">#SpareShots</a>
+                  <a href="#" class="tag-cloud-link">#MentalGame</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <div id="footer"></div>
   <script>
-    // Load the navbar.html content into the #navbar div using JavaScript
+    // Load the footer.html content into the #footer div using JavaScript
     fetch("/components/footer.html")
       .then((response) => response.text())
       .then((data) => {

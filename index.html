@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/558450d71d.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
 </head>
 
@@ -39,62 +40,276 @@
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
+          // Initialize any Bootstrap components AFTER the navbar is loaded
+          if (typeof bootstrap !== 'undefined') {
+            // Initialize dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+              return new bootstrap.Dropdown(dropdownToggleEl)
+            })
+          }
         });
     </script>
-    <div class="container">
-      <section id="welcomeMsg">
-        <h2>Welcome to J.Rice Coaching</h2>
-        <p>
-          Welcome to J.Rice Coaching. As a USBC Silver Level coach with a strong focus on youth development, my mission is to help bowlers refine their skills and grow their love for the sport. Bowling is something you can enjoy for a lifetime, and I’m here to support those committed to improving their game and becoming lifelong participants. Whether you’re new to the lanes or looking to reach the next level, I’m ready to guide you in achieving your goals.
-        </p>
-        <!-- <p>
-                Elevate your game with J.Rice Coaching. I focus not just on skills but a lifelong passion for the sport. My philosophy is rooted in holistic growth, fostering an environment where continuous learning and appreciation for bowling thrive. Whether you're a beginner or an experienced player, my coaching approach is tailored to unlock your full potential. Join me in this journey to master the lanes, one pin at a time.
-            </p> -->
-      </section>
-      <section id="aboutMsg">
-        <h2>A Bit About Me</h2>
 
-        <p>
-          My love for bowling began when I was a kid, and it’s only deepened over the years. I’ve spent countless hours on the lanes, learning both classic techniques and developing a few unique ones of my own.
-        </p>
-        <p>
-          My biggest reward, though, is sharing that passion with others. Whether you’re picking up a bowling ball for the first time or looking to refine your skills, I’m here to guide you with personalized coaching every step of the way.
-        </p>
-        <p>
-          Combining proven techniques with engaging, innovative methods, I aim to make each session as enjoyable as it is effective. For me, bowling isn’t just a game—it’s a way to bring people together and support their growth, and that’s the heart of my approach to coaching. 
-        </p>
-        <p>
-          Ready to elevate your skills and experience the game in a new way? Let’s get started!
-        </p>
-      </section>
-      <section id="philosophyTeaser">
-        <h2>Peek Into My Coaching Philosophy</h2>
-        <p>
-          Curious about the approach behind J.Rice Coaching? My focus is on helping you bring out your best, making the experience both effective and enjoyable. It’s not just about the techniques of bowling—it’s about fostering a genuine excitement for the sport with each roll and each pin. Think of it as learning with a coach who’s as enthusiastic about bowling as you are.
-        </p>
-        <p>
-          My approach is about growth, learning together, and even sharing a few laughs along the way. I believe every bowler’s journey is unique, which makes it all the more rewarding. From beginners to advanced players, I tailor my coaching to your individual style and goals.
-        </p>
-        <p>
-          Want to know more? Take a deeper look at our full coaching philosophy <a href="./pages/philosophy.html" id="philosophyLink">here</a> to see how we can elevate your game.
-        </p>
-      </section>
-    </div>
+    <!-- Hero Banner Section -->
+    <section class="hero-banner py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-primary">Welcome to J.Rice Coaching</h1>
+            <p class="lead">As a USBC Silver Level coach with a strong focus on youth development, my mission is to help
+              bowlers refine their skills and grow their love for the sport.</p>
+            <div class="d-flex gap-3 mt-4">
+              <a href="./pages/services.html" class="btn btn-primary btn-lg">Explore Services</a>
+              <a href="./pages/contact.html" class="btn btn-outline-primary btn-lg">Book a Lesson</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="ratio ratio-16x9 rounded overflow-hidden shadow-lg">
+              <img src="./assets/img/JeffRiceActionShot.jpg" alt="Bowling action shot" class="img-fluid"
+                style="object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col-12">
+            <h2 class="fw-bold">Why Choose J.Rice Coaching?</h2>
+            <p class="lead">Elevate your game with personalized coaching that focuses on your unique style and goals</p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm feature-card">
+              <div class="card-body text-center p-4">
+                <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                  <i class="fas fa-medal fa-2x p-3"></i>
+                </div>
+                <h3 class="card-title h4">Experience</h3>
+                <p class="card-text">USBC Silver Level certification with years of practical coaching experience.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm feature-card">
+              <div class="card-body text-center p-4">
+                <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                  <i class="fas fa-users fa-2x p-3"></i>
+                </div>
+                <h3 class="card-title h4">Personalized Approach</h3>
+                <p class="card-text">Tailored coaching for all skill levels, from beginners to competitive players.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm feature-card">
+              <div class="card-body text-center p-4">
+                <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                  <i class="fas fa-film fa-2x p-3"></i>
+                </div>
+                <h3 class="card-title h4">Video Analysis</h3>
+                <p class="card-text">Advanced techniques using video analysis to improve your performance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section with Bootstrap Cards -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="fw-bold">About Coach Rice</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow h-100">
+              <div class="card-body p-4">
+                <h3 class="card-title h4 mb-3">My Journey</h3>
+                <p class="card-text">
+                  My love for bowling began when I was a kid, and it's only deepened over the years. I've spent
+                  countless hours
+                  on the lanes, learning both classic techniques and developing a few unique ones of my own.
+                </p>
+                <p class="card-text">
+                  My biggest reward, though, is sharing that passion with others. Whether you're picking up a bowling
+                  ball for
+                  the first time or looking to refine your skills, I'm here to guide you with personalized coaching
+                  every step
+                  of the way.
+                </p>
+                <p class="card-text">
+                  Ready to elevate your skills and experience the game in a new way? Let's get started!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="card border-0 shadow h-100">
+              <div class="card-body p-4">
+                <h3 class="card-title h4 mb-3">Coaching Philosophy</h3>
+                <p class="card-text">
+                  Curious about the approach behind J.Rice Coaching? My focus is on helping you bring out your best,
+                  making the
+                  experience both effective and enjoyable. It's not just about the techniques of bowling—it's about
+                  fostering a
+                  genuine excitement for the sport with each roll and each pin.
+                </p>
+                <p class="card-text">
+                  My approach is about growth, learning together, and even sharing a few laughs along the way. I believe
+                  every
+                  bowler's journey is unique, which makes it all the more rewarding. From beginners to advanced players,
+                  I
+                  tailor my coaching to your individual style and goals.
+                </p>
+                <a href="./pages/philosophy.html" class="btn btn-primary mt-3">Learn More About My Philosophy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Blog Posts or Testimonials - FIXED VERSION -->
+    <section class="py-5 blog-section">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h2 class="fw-bold">From The Blog</h2>
+            <p class="lead">Stories and insights from the lanes</p>
+          </div>
+        </div>
+
+        <div class="row blog-cards-container">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow h-100 blog-card">
+              <div class="card-img-wrapper">
+                <img src="./assets/img/AddysonEarnedPlaquesScaled.jpg" class="card-img-top" alt="Blog post image"
+                  onerror="this.src='https://via.placeholder.com/300x200?text=Bowling+Journey'">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Rolling Through Indiana: Milestones and Memories</h5>
+                <p class="card-text text-muted small">November 14, 2024</p>
+                <p class="card-text flex-grow-1">One of the greatest joys in my coaching and personal life has been
+                  watching my daughter, Addyson, grow up immersed in the world of bowling...</p>
+                <a href="./pages/blog.html" class="btn btn-sm btn-outline-primary mt-auto">Read More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow h-100 blog-card">
+              <div class="card-img-wrapper">
+                <img src="./assets/img/BowlingBallCoreXSection.jpg" class="card-img-top pt-2" alt="Blog post image"
+                  onerror="this.src='https://via.placeholder.com/300x200?text=Hidden+Complexity'">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">The Hidden Complexity of Bowling</h5>
+                <p class="card-text text-muted small">July 3, 2024</p>
+                <p class="card-text flex-grow-1">When you think of bowling, you might picture a casual night out with
+                  friends, rented shoes, and the occasional strike. However, beneath the surface...</p>
+                <a href="./pages/blog.html" class="btn btn-sm btn-outline-primary mt-auto">Read More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow h-100 blog-card">
+              <div class="card-img-wrapper">
+                <img src="./assets/img/coachingMoment.jpg" class="card-img-top pt-2" alt="Blog post image"
+                  onerror="this.src='https://via.placeholder.com/300x200?text=Striking+Success'">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Striking Success: Your Guide to Becoming a Better Bowler</h5>
+                <p class="card-text text-muted small">December 4, 2023</p>
+                <p class="card-text flex-grow-1">You've probably noticed a bunch of folks on social media asking the
+                  same question: "How do I level up my bowling game?" It's a common query...</p>
+                <a href="./pages/blog.html" class="btn btn-sm btn-outline-primary mt-auto">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <a href="./pages/blog.html" class="btn btn-lg btn-primary">View All Blog Posts</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="fw-bold mb-4">Ready to Elevate Your Game?</h2>
+            <p class="lead mb-4">Book a personalized coaching session today and start your journey to becoming a better
+              bowler.</p>
+            <a href="./pages/contact.html" class="btn btn-light btn-lg px-5 py-3">Book a Lesson Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+    <script>
+      // Load the footer.html content into the #footer div using JavaScript
+      fetch("./components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
   </div>
-  <div id="footer"></div>
-  <script>
-    // Load the navbar.html content into the #navbar div using JavaScript
-    fetch("./components/footer.html")
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
 
+  <!-- Load Bootstrap JS AFTER all content is loaded -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+
+  <!-- Load your main.js last -->
   <script src="./assets/js/main.js"></script>
+
+  <!-- Additional script for fixing blog post jumpiness -->
+  <script>
+    // Preload blog images to prevent layout jumps
+    function preloadBlogImages() {
+      const images = document.querySelectorAll('.blog-card .card-img-top');
+      images.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src) {
+          const preloadImage = new Image();
+          preloadImage.src = src;
+        }
+      });
+    }
+
+    // Call this function when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      preloadBlogImages();
+
+      // Modify the animation for blog cards
+      const blogCards = document.querySelectorAll('.blog-card');
+      blogCards.forEach(card => {
+        // Remove any animate.css classes that might cause jumpiness
+        card.classList.remove('animate__animated', 'animate__fadeIn');
+      });
+    });
+  </script>
 </body>
 
 </html>
