@@ -1,70 +1,80 @@
-// On splash-btn click
-document.querySelector('.splash-btn').addEventListener('click', function (e) {
-    e.preventDefault();
-    sessionStorage.setItem('splashShown', 'true');
-    document.querySelector('.splash-container').style.display = 'none';
-
-    // Ensure the main content is now visible
-    var mainContent = document.getElementById('main-content');
-    mainContent.style.display = 'block';
-
-    // use setTimeout to allow the display change to take effect before scrolling
-    setTimeout(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-        
-        // Ensure Bootstrap's JS initializes dropdown menus
-        initializeNavbarComponents();
-    }, 100);
-});
+let allArticles = []; // Global variable to store articles
 
 document.addEventListener('DOMContentLoaded', function () {
-    var splashShown = sessionStorage.getItem('splashShown');
-    if (!splashShown) {
-        // Show the splash container if splashShown is not 'true'
-        document.querySelector('.splash-container').style.display = 'block';
+    // Only run splash screen logic if we're on the index page
+    const isIndexPage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+    
+    if (isIndexPage) {
+        // Splash screen logic (only applies to index.html)
+        const splashBtn = document.querySelector('.splash-btn');
+        if (splashBtn) {
+            splashBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                sessionStorage.setItem('splashShown', 'true');
+                document.querySelector('.splash-container').style.display = 'none';
+                var mainContent = document.getElementById('main-content');
+                mainContent.style.display = 'block';
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    initializeNavbarComponents();
+                }, 100);
+            });
+        }
+
+        var splashShown = sessionStorage.getItem('splashShown');
+        if (!splashShown) {
+            const splashContainer = document.querySelector('.splash-container');
+            if (splashContainer) {
+                splashContainer.style.display = 'block';
+            }
+        } else {
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) {
+                mainContent.style.display = 'block';
+                setTimeout(initializeNavbarComponents, 300);
+            }
+        }
+
+        if (document.getElementById('main-content')?.style.display === 'block') {
+            setupAnimations();
+        }
     } else {
-        // Ensure main content is shown
-        document.getElementById('main-content').style.display = 'block';
-        
-        // Initialize navbar components
-        setTimeout(initializeNavbarComponents, 300);
+        // For all other pages, just initialize components
+        initializeNavbarComponents();
     }
 
-    // Setup animations when content is visible
-    if (document.getElementById('main-content').style.display === 'block') {
-        setupAnimations();
+    // Load blog posts if on blog.html
+    if (document.getElementById('blog-posts')) {
+        loadBlogPosts();
     }
     
-    // Add these lines back only if you're using the authentication features
-    // Otherwise, you can remove them if they're causing issues
-    /*
-    // Check if user is logged in
-    fetch('http://localhost:3000/isAuthenticated', { credentials: 'include' })
-        .then(response => response.json())
-        .then(data => {
-            if (data.isAuthenticated) {
-                showUserDashboard(data.user);
-            } else {
-                showLoginAndRegisterForms();
-            }
-        })
-        .catch(error => console.log('Error:', error));
-    */
+    // Load blog preview on home page
+    if (document.getElementById('home-blog-posts')) {
+        loadHomeBlogPosts();
+    }
+
+    // Add search functionality
+    const searchInput = document.querySelector('input[placeholder="Search articles..."]');
+    const searchButton = document.querySelector('.input-group button');
+    if (searchInput && searchButton) {
+        searchButton.addEventListener('click', function () {
+            filterArticles(searchInput.value);
+        });
+        searchInput.addEventListener('input', function () {
+            filterArticles(this.value);
+        });
+    }
 });
 
-// Make sure Bootstrap's JS properly initializes navbar components
 function initializeNavbarComponents() {
     if (typeof bootstrap !== 'undefined') {
-        // Initialize all dropdowns
         var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
         dropdownElementList.map(function (dropdownToggleEl) {
             return new bootstrap.Dropdown(dropdownToggleEl);
         });
-        
-        // Initialize all collapse elements (for mobile hamburger menu)
         var collapseElementList = [].slice.call(document.querySelectorAll('.navbar-toggler'));
         collapseElementList.map(function (collapseToggleEl) {
             return new bootstrap.Collapse(document.querySelector(collapseToggleEl.dataset.bsTarget), {
@@ -74,141 +84,13 @@ function initializeNavbarComponents() {
     }
 }
 
-// Keep the original functionality for authentication if you're using it
-function showUserDashboard(user) {
-    document.getElementById('main-content').innerHTML = `
-        <h1>Welcome, ${user.username}</h1>
-        <h2>Your Videos</h2>
-        <div id="videosContainer"></div>
-        <button id="logoutBtn" class="btn btn-primary">Logout</button>
-    `;
-
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-        fetch('http://localhost:3000/logout', { method: 'GET', credentials: 'include' })
-            .then(response => {
-                if (response.ok) {
-                    sessionStorage.removeItem('splashShown');
-                    location.reload();
-                }
-            })
-            .catch(error => console.log('Error:', error));
-    });
-
-    loadUserVideos(user.videos);
-}
-
-function showLoginAndRegisterForms() {
-    // Only uncomment this if you're actually using the authentication features
-    /*
-    document.getElementById('main-content').innerHTML = `
-        <div class="container mt-5">
-            <h1>Login</h1>
-            <form id="loginForm">
-                <div class="mb-3">
-                    <label for="loginUsername" class="form-label">Username:</label>
-                    <input type="text" class="form-control" id="loginUsername" name="username" required>
-                </div>
-                <div class="mb-3">
-                    <label for="loginPassword" class="form-label">Password:</label>
-                    <input type="password" class="form-control" id="loginPassword" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-            <h1>Register</h1>
-            <form id="registerForm">
-                <div class="mb-3">
-                    <label for="registerUsername" class="form-label">Username:</label>
-                    <input type="text" class="form-control" id="registerUsername" name="username" required>
-                </div>
-                <div class="mb-3">
-                    <label for="registerPassword" class="form-label">Password:</label>
-                    <input type="password" class="form-control" id="registerPassword" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-            </form>
-        </div>
-    `;
-
-    document.getElementById('loginForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const username = document.getElementById('loginUsername').value;
-        const password = document.getElementById('loginPassword').value;
-
-        fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            body: JSON.stringify({ username, password })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.user) {
-                showUserDashboard(data.user);
-            } else {
-                alert('Login failed!');
-            }
-        })
-        .catch(error => console.log('Error:', error));
-    });
-
-    document.getElementById('registerForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const username = document.getElementById('registerUsername').value;
-        const password = document.getElementById('registerPassword').value;
-
-        fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            body: JSON.stringify({ username, password })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.user) {
-                showUserDashboard(data.user);
-            } else {
-                alert('Registration failed!');
-            }
-        })
-        .catch(error => console.log('Error:', error));
-    });
-    */
-}
-
-function loadUserVideos(videos) {
-    const videosContainer = document.getElementById('videosContainer');
-    if (videosContainer && videos) {
-        videos.forEach(video => {
-            const videoElement = document.createElement('div');
-            videoElement.classList.add('video-item');
-            videoElement.innerHTML = `
-                <video controls width="100%">
-                    <source src="${video}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            `;
-            videosContainer.appendChild(videoElement);
-        });
-    }
-}
-
-// Setup animations for elements
 function setupAnimations() {
-    // Add animation classes to elements with a slight delay for each
     const animatedElements = document.querySelectorAll('.card, .hero-banner, .feature-icon, h2.fw-bold, .lead');
-    
     animatedElements.forEach((element, index) => {
-        // Add a small delay based on element index for staggered animation
         setTimeout(() => {
             element.classList.add('animate__animated', 'animate__fadeIn');
         }, index * 150);
     });
-    
-    // Add hover effects to feature cards
     const featureCards = document.querySelectorAll('.card');
     featureCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -216,7 +98,6 @@ function setupAnimations() {
             this.style.transition = 'transform 0.3s ease';
             this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
         });
-        
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
             this.style.transition = 'transform 0.3s ease';
@@ -225,7 +106,174 @@ function setupAnimations() {
     });
 }
 
-// Make Book Now buttons functional
+function loadBlogPosts() {
+    const articlesPath = '/assets/articles.json';
+    fetch(articlesPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(articles => {
+            console.log('Articles loaded:', articles);
+            allArticles = articles; // Store articles globally
+            renderArticles(articles);
+        })
+        .catch(error => {
+            console.error('Error loading blog posts:', error);
+            // Show a user-friendly error message
+            document.getElementById('blog-posts').innerHTML = '<div class="alert alert-info">Blog posts are being updated. Please check back later.</div>';
+        });
+}
+
+function renderArticles(articles) {
+    const featuredContainer = document.getElementById('featured-post');
+    const postsContainer = document.getElementById('blog-posts');
+    
+    if (postsContainer) {
+        postsContainer.innerHTML = ''; // Clear existing posts
+    }
+    
+    if (featuredContainer) {
+        featuredContainer.innerHTML = ''; // Clear featured post
+    }
+
+    if (!articles || articles.length === 0) {
+        if (postsContainer) {
+            postsContainer.innerHTML = '<div class="alert alert-info">No articles found.</div>';
+        }
+        return;
+    }
+
+    articles.forEach(article => {
+        const postHtml = `
+            <article id="${article.id}" class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
+                <div class="card-body">
+                    <h2 class="blog-post-title">${article.title}</h2>
+                    <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <span class="text-muted"><i class="far fa-calendar-alt"></i> ${article.date}</span>
+                            <span class="ms-3 text-muted"><i class="far fa-user"></i> ${article.author}</span>
+                        </div>
+                        <div class="blog-post-share">
+                            <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-featured-image mb-4 text-center">
+                        <img src="${article.image}" class="img-fluid rounded" alt="${article.alt}" style="max-height: 400px; object-fit: contain;"
+                            onerror="this.src='https://via.placeholder.com/800x400?text=${article.title.replace(/ /g, '+')}'">
+                    </div>
+                    <div class="blog-content">${article.content}</div>
+                    <div class="blog-post-tags mt-4">
+                        <i class="fas fa-tags me-2"></i>
+                        ${article.tags.map(tag => `<span class="tag me-2">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            </article>`;
+        
+        if (article.isFeatured && featuredContainer) {
+            const featuredHtml = `
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <div class="blog-featured-image">
+                            <img src="${article.image}" class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="${article.alt}"
+                                onerror="this.src='https://via.placeholder.com/600x400?text=${article.title.replace(/ /g, '+')}'">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body d-flex flex-column h-100">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="badge bg-primary me-2">Featured</span>
+                                <small class="text-muted">${article.date}</small>
+                            </div>
+                            <h2 class="card-title h3">${article.title}</h2>
+                            <p class="card-text flex-grow-1">${article.content.split('</p>')[0].replace('<p>', '')}...</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#${article.id}" class="btn btn-primary">Read Full Article</a>
+                                <div>
+                                    <span class="me-3"><i class="far fa-clock"></i> ${article.readTime}</span>
+                                    <span><i class="far fa-eye"></i> ${article.views} views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            featuredContainer.innerHTML = featuredHtml;
+        }
+        
+        if (postsContainer) {
+            postsContainer.innerHTML += postHtml;
+        }
+    });
+}
+
+function filterArticles(searchTerm) {
+    const term = searchTerm.toLowerCase();
+    const filteredArticles = allArticles.filter(article => 
+        article.title.toLowerCase().includes(term) ||
+        article.content.toLowerCase().includes(term) ||
+        article.tags.some(tag => tag.toLowerCase().includes(term))
+    );
+    renderArticles(filteredArticles);
+}
+
+function loadHomeBlogPosts() {
+    const articlesPath = '/assets/articles.json';
+    fetch(articlesPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(articles => {
+            const container = document.getElementById('home-blog-posts');
+            if (!container) return;
+            
+            // Take only the first 3 articles (or however many exist)
+            const articlesToShow = articles.slice(0, 3);
+            
+            container.innerHTML = ''; // Clear existing content
+            
+            articlesToShow.forEach((article, index) => {
+                const truncatedContent = article.content.split('</p>')[0].replace('<p>', '');
+                const cardHtml = `
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card border-0 shadow h-100 blog-card animate__animated animate__fadeIn" style="animation-delay: ${index * 0.2}s;">
+                            <div class="card-img-wrapper">
+                                <img src="${article.image}" class="card-img-top" alt="${article.alt}"
+                                    onerror="this.src='https://via.placeholder.com/300x200?text=${article.title.replace(/ /g, '+')}'">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${article.title}</h5>
+                                <p class="card-text text-muted small">${article.date}</p>
+                                <p class="card-text flex-grow-1">${truncatedContent}...</p>
+                                <a href="./pages/blog.html#${article.id}" class="btn btn-sm btn-outline-primary mt-auto">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHtml;
+            });
+            
+            // If no articles, show a message
+            if (articlesToShow.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center"><p>No blog posts available yet.</p></div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading home blog posts:', error);
+            const container = document.getElementById('home-blog-posts');
+            if (container) {
+                container.innerHTML = '<div class="col-12 text-center"><p>Blog posts are being updated. Please check back later.</p></div>';
+            }
+        });
+}
+
+// Global booking button handler
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         const bookButtons = document.querySelectorAll('.btn-cta, a[href*="contact.html"]');
@@ -233,23 +281,63 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', function(e) {
                 if (!this.getAttribute('href')) {
                     e.preventDefault();
-                    window.location.href = './pages/contact.html';
+                    window.location.href = '/pages/contact.html';
                 }
             });
         });
-    }, 500); // Delay to ensure all elements are loaded
+    }, 500);
 });
 
-// Handle animations when scrolling
-window.addEventListener('scroll', function() {
-    const animatedElements = document.querySelectorAll('.section-title, .card:not(.animate__animated)');
-    
-    animatedElements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-        
-        if (elementPosition < screenPosition) {
-            element.classList.add('animate__animated', 'animate__fadeIn');
-        }
-    });
-});
+// Scroll animations
+function loadHomeBlogPosts() {
+    const articlesPath = '/assets/articles.json';
+    fetch(articlesPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(articles => {
+            const container = document.getElementById('home-blog-posts');
+            if (!container) return;
+            
+            // Take only the first 3 articles (or however many exist)
+            const articlesToShow = articles.slice(0, 3);
+            
+            container.innerHTML = ''; // Clear existing content
+            
+            articlesToShow.forEach((article, index) => {
+                const truncatedContent = article.content.split('</p>')[0].replace('<p>', '');
+                const cardHtml = `
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card border-0 shadow h-100 blog-card animate__animated animate__fadeIn" style="animation-delay: ${index * 0.2}s;">
+                            <div class="card-img-wrapper">
+                                <img src="${article.image}" class="card-img-top" alt="${article.alt}"
+                                    onerror="this.src='https://via.placeholder.com/300x200?text=${article.title.replace(/ /g, '+')}'">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${article.title}</h5>
+                                <p class="card-text text-muted small">${article.date}</p>
+                                <p class="card-text flex-grow-1">${truncatedContent}...</p>
+                                <a href="./pages/blog.html#${article.id}" class="btn btn-sm btn-outline-primary mt-auto">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHtml;
+            });
+            
+            // If no articles, show a message
+            if (articlesToShow.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center"><p>No blog posts available yet.</p></div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading home blog posts:', error);
+            const container = document.getElementById('home-blog-posts');
+            if (container) {
+                container.innerHTML = '<div class="col-12 text-center"><p>Blog posts are being updated. Please check back later.</p></div>';
+            }
+        });
+}

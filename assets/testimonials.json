@@ -1,0 +1,22 @@
+[
+    {
+        "id": "test-001",
+        "name": "Sarah M.",
+        "category": "League Bowler",
+        "rating": 5,
+        "testimonial": "Working with Coach Rice has completely transformed my game. In just a few sessions, my average jumped from 145 to 165!",
+        "permission": false,
+        "date": "2025-03-15",
+        "featured": true
+    },
+    {
+        "id": "test-002",
+        "name": "Mike T.",
+        "category": "Parent of Youth Bowler",
+        "rating": 5,
+        "testimonial": "My daughter loves her lessons with Jeff. He's patient and makes learning fun.",
+        "permission": false,
+        "date": "2025-03-10",
+        "featured": false
+    }
+]

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,36 +12,30 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
-
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4P4JECD0D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z4P4JECD0D');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4P4JECD0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z4P4JECD0D');
+  </script>
 </head>
-
 <body>
   <header>
     <img src="/assets/img/CoachingLogoNoBg.png" alt="Coaching Logo" height="auto" width="250">
   </header>
   <div id="navbar"></div>
   <script>
-    // Load the navbar.html content into the #navbar div using JavaScript
     fetch("/components/navbar.html")
       .then((response) => response.text())
       .then((data) => {
         document.getElementById("navbar").innerHTML = data;
-        // Initialize any Bootstrap components AFTER the navbar is loaded
         if (typeof bootstrap !== 'undefined') {
-          // Initialize dropdowns
-          var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-          var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-            return new bootstrap.Dropdown(dropdownToggleEl)
-          })
+          var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+          dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl);
+          });
         }
       });
   </script>
@@ -51,8 +44,7 @@
   <section class="blog-hero py-5 bg-light">
     <div class="container text-center">
       <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeIn">Life on the Bowling Lane</h1>
-      <p class="lead mt-3 mb-4 animate__animated animate__fadeIn animate__delay-1s">Stories, Tips, and Lessons from the
-        Lanes</p>
+      <p class="lead mt-3 mb-4 animate__animated animate__fadeIn animate__delay-1s">Stories, Tips, and Lessons from the Lanes</p>
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="input-group mb-3">
@@ -72,7 +64,6 @@
         <a href="#" class="btn btn-outline-primary m-1">Coaching Tips</a>
         <a href="#" class="btn btn-outline-primary m-1">Tournament Stories</a>
         <a href="#" class="btn btn-outline-primary m-1">Technique</a>
-        <a href="#" class="btn btn-outline-primary m-1">Equipment</a>
       </div>
     </div>
   </section>
@@ -83,397 +74,9 @@
         <!-- Main Blog Content -->
         <div class="col-lg-8">
           <!-- Featured Post -->
-          <div class="card mb-5 border-0 shadow blog-featured-post animate__animated animate__fadeIn">
-            <div class="row g-0">
-              <div class="col-md-5">
-                <div class="blog-featured-image">
-                  <img src="/assets/img/AddysonEarnedPlaques.jpg"
-                    class="img-fluid rounded-start h-100 w-100 object-fit-cover" alt="Featured post image"
-                    onerror="this.src='https://via.placeholder.com/600x400?text=Bowling+Journey'">
-                </div>
-              </div>
-              <div class="col-md-7">
-                <div class="card-body d-flex flex-column h-100">
-                  <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-primary me-2">Featured</span>
-                    <small class="text-muted">November 14, 2024</small>
-                  </div>
-                  <h2 class="card-title h3">Rolling Through Indiana: Milestones and Memories</h2>
-                  <p class="card-text flex-grow-1">One of the greatest joys in my coaching and personal life has been
-                    watching my daughter, Addyson, grow up immersed in the world of bowling. From her earliest days on
-                    the lanes with bumpers to the impressive accomplishments she's earned as a young competitor...</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <a href="#rolling-through-indiana" class="btn btn-primary">Read Full Article</a>
-                    <div>
-                      <span class="me-3"><i class="far fa-clock"></i> 5 min read</span>
-                      <span><i class="far fa-eye"></i> 234 views</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <div id="featured-post" class="card mb-5 border-0 shadow blog-featured-post animate__animated animate__fadeIn"></div>
           <!-- Individual Blog Posts -->
-          <article class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
-            <div class="card-body">
-              <h2 class="blog-post-title">Why Spare Shooting Deserves More Attention</h2>
-              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
-                <div>
-                  <span class="text-muted"><i class="far fa-calendar-alt"></i> March 31, 2025</span>
-                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Silver Level Coach</span>
-                </div>
-                <div class="blog-post-share">
-                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-
-              <div class="blog-featured-image mb-4 text-center">
-                <img src="/assets/img/five_seven_split.jpg" class="img-fluid rounded" alt="Bowler picking up a spare"
-                  style="max-height: 400px; object-fit: contain;"
-                  onerror="this.src='https://via.placeholder.com/800x400?text=Spare+Shooting'">
-              </div>
-
-              <div class="blog-content">
-                <p>
-                  As a high school bowling coach, one of the most important—and often overlooked—skills I emphasize with
-                  my athletes is spare shooting. I've even dedicated entire practices to it. The challenge? Spares just
-                  don't carry the same thrill as throwing strike after strike. But if you want to be a better bowler,
-                  consistently converting spares is one of the fastest ways to level up your game.
-                </p>
-                <p>
-                  Here's why I focus so much on it:
-                </p>
-
-                <h3 class="mt-4 mb-3">Small Changes, Big Impact</h3>
-                <p>
-                  Closing just one more frame per game can boost your score by up to 20 pins. Over the course of a
-                  series, that can mean a 10–15 pin improvement to your average. That kind of bump adds up quickly and
-                  can make a huge difference in tight matches.
-                </p>
-
-                <h3 class="mt-4 mb-3">Spares Build Better Bowlers</h3>
-                <p>
-                  Practicing spares sharpens key fundamentals like targeting, lane adjustments, and visualization. You
-                  might not be focused on hitting a perfect breakpoint or tracking ball motion through the pin deck, but
-                  you <em>do</em> need to think critically about your angles and make purposeful adjustments—especially
-                  when dealing with multi-pin leaves. That includes tough splits like the Big Four (4-6-7-10), the 7-10
-                  split, or the Greek Church (4-6-7-9-10). In those cases, the goal isn't necessarily to convert the
-                  spare—though it's great if you do—but to maximize pin count. Getting two or three pins is always
-                  better than walking away with an open frame.
-                </p>
-                <p>
-                  Spare shooting forces you to use the whole lane and think critically about your execution. As
-                  <em>Bowler's Journal</em> puts it, "Making various spares requires throwing the ball toward all
-                  sections of the pindeck... being able to visually assess where the ball is on the lane is a very
-                  important asset" (<em>Spare Shooting: A Master Class</em>, March 2025, p. 24).
-                </p>
-
-                <h3 class="mt-4 mb-3">Even the Pros Rely on Spares</h3>
-                <p>
-                  In the same article, the <em>Journal</em> highlights how critical spare shooting is—even at the
-                  highest levels. During the PBA's 2025 Delaware Classic, several players averaged over 240 per game,
-                  yet avoiding open frames still proved to be a major factor in their success. Strikes might light up
-                  the scoreboard, but it's spare conversions that hold your game together.
-                </p>
-
-                <h3 class="mt-4 mb-3">Finding What Works</h3>
-                <p>
-                  There are many schools of thought when it comes to spare shooting: use a plastic ball, try urethane,
-                  or even learn a backup shot (though I don't recommend the last one—long-term wrist health matters). My
-                  rule of thumb? Use whatever method you can repeat safely and consistently. But no matter what you
-                  choose, there's no shortcut: you have to put in the practice.
-                </p>
-                <p>
-                  Norm Duke—one of my all-time favorite bowlers—didn't use a spare ball. He had mastered his release so
-                  well that he could pick up spares with his strike ball. And while I doubt he perfected that overnight
-                  (Norm, if you did, my apologies), it took serious work to develop that level of control and
-                  consistency.
-                </p>
-
-                <h3 class="mt-4 mb-3">My Approach</h3>
-                <p>
-                  Personally, I go with a plastic ball. For me, it simplifies things—I don't want to factor in lane
-                  transitions or ball motion variables more than I have to. I know my target, I know the shot I want to
-                  make, and if I execute properly, I trust the spare will fall. Some might call it lazy—I call it
-                  repeatable.
-                </p>
-                <p>
-                  One day at practice, I was lining up for a 10-pin and turned around immediately after my release
-                  because I <em>knew</em> it was good. My bowlers stared at me like I was crazy, but I told them: with
-                  enough practice, you'll know when you've thrown a good ball. That kind of confidence only comes from
-                  reps.
-                </p>
-
-                <h3 class="mt-4 mb-3">Why It Matters</h3>
-                <p>
-                  Let's face it—most of us aren't bowling 300 games every time out. For the average league bowler, the
-                  odds of a perfect game are around 1 in 11,500. So unless perfection is your norm, you <em>have</em> to
-                  be able to pick up spares. That's where consistency lives. That's where games are won—or lost.
-                </p>
-                <p>
-                  It's an old saying, but it holds true: <strong>Strikes win games, spares win championships.</strong>
-                </p>
-              </div>
-
-              <div class="blog-post-tags mt-4">
-                <i class="fas fa-tags me-2"></i>
-                <a href="#" class="tag me-2">#SpareShootingTips</a>
-                <a href="#" class="tag me-2">#BowlingFundamentals</a>
-                <a href="#" class="tag">#CoachingAdvice</a>
-              </div>
-            </div>
-          </article>
-
-          <article id="rolling-through-indiana"
-            class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
-            <div class="card-body">
-              <h2 class="blog-post-title">Rolling Through Indiana: Milestones and Memories</h2>
-              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
-                <div>
-                  <span class="text-muted"><i class="far fa-calendar-alt"></i> November 14, 2024</span>
-                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Silver Level Coach</span>
-                </div>
-                <div class="blog-post-share">
-                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-
-              <div class="blog-featured-image mb-4 text-center">
-                <img src="/assets/img/AddysonEarnedPlaques.jpg" class="img-fluid rounded" alt="Featured image"
-                  style="max-height: 400px; object-fit: contain;"
-                  onerror="this.src='https://via.placeholder.com/800x400?text=Bowling+Journey'">
-              </div>
-
-              <div class="blog-content">
-                <p>
-                  One of the greatest joys in my coaching and personal life has been watching my daughter, Addyson, grow
-                  up immersed in the world of bowling. From her earliest days on the lanes with bumpers to the
-                  impressive accomplishments she's earned as a young competitor, her journey has been full of memories
-                  that remind me why I love this sport—and why I'm committed to sharing it with others.
-                </p>
-                <p>
-                  Addyson has earned her place in the bowling community. She's a two-time Sectional Champion for high
-                  school girls, a two-time Jr. Gold qualifier, KYSTS plastic ball champion, and an all-city team honoree
-                  for the past two years. Now, as the captain of her high school team, she leads others with the same
-                  determination and love for the game that I've seen in her from the start. But beyond the titles and
-                  trophies, it's the moments we've shared on the road and at the lanes that have defined her journey.
-                </p>
-                <p>
-                  We've traveled all over Indiana for tournaments, with some stops in Kentucky, each trip an adventure
-                  filled with excitement, preparation, and that unique anticipation only a bowling tournament can bring.
-                  These journeys have given us opportunities to explore new places and face different competitors,
-                  adding a layer of experience that's been invaluable in her development.
-                </p>
-                <p>
-                  One trip, however, stands out more than most. We traveled to Elkhart, Indiana, for a grueling
-                  eliminator-style tournament. The format was demanding: six games to start, with cuts after every
-                  round—six games, then four, then two, all the way to a final step-ladder for the top four. Addyson
-                  bowled her heart out, advancing through every cut, but by the later rounds, the fatigue was visible.
-                  She'd glance at me between frames with a look that said, I'm ready for this to be over. But each time,
-                  they'd call the names for the next round, and there she was, still in the running.
-                </p>
-                <p>
-                  She pushed through that day, finishing in an impressive third place. Although it's not an experience
-                  she likes to revisit, it's a testament to her resilience. She and her friend, who was also competing,
-                  joked afterward that they'd experienced a "mental breakdown" together due to the exhaustion—a bonding
-                  moment that sealed their friendship. That day may have been physically and mentally challenging, but
-                  it's one of those stories we look back on with a mix of pride and humor.
-                </p>
-                <p>
-                  These experiences have been more than milestones in her competitive journey; they've been powerful
-                  moments in our relationship and in her growth as an athlete. I'm proud of her accomplishments, but
-                  even more, I'm proud of her determination, her willingness to push through tough days, and her love
-                  for the sport.
-                </p>
-                <p>
-                  As her high school coach for the past three years, I feel privileged to be part of her journey and to
-                  see how far she's come. Each tournament, each road trip, and each frame she bowls are memories I'll
-                  cherish. It's my hope that her journey inspires other young bowlers to embrace the sport with the same
-                  passion and resilience that she brings to the lanes.
-                </p>
-              </div>
-
-              <div class="blog-post-tags mt-4">
-                <i class="fas fa-tags me-2"></i>
-                <a href="#" class="tag me-2">#BowlingJourney</a>
-                <a href="#" class="tag me-2">#BowlingMemories</a>
-                <a href="#" class="tag">#SportsParenting</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
-            <div class="card-body">
-              <h2 class="blog-post-title">The Hidden Complexity of Bowling: A Sport of Precision and Skill</h2>
-              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
-                <div>
-                  <span class="text-muted"><i class="far fa-calendar-alt"></i> July 3, 2024</span>
-                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Bronze Level Coach</span>
-                </div>
-                <div class="blog-post-share">
-                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-
-              <div class="blog-featured-image mb-4 text-center">
-                <img src="/assets/img/BowlingBallCoreXSection.jpg" class="img-fluid rounded" alt="Featured image"
-                  style="max-height: 400px; object-fit: contain;"
-                  onerror="this.src='https://via.placeholder.com/800x400?text=Hidden+Complexity'">
-              </div>
-
-              <div class="blog-content">
-                <p>
-                  When you think of bowling, you might picture a casual night out with friends, rented shoes, and the
-                  occasional strike. However, beneath the surface of this seemingly straightforward game lies a world of
-                  precision, strategy, and technical skill that rivals any other sport. Bowling is far more than just
-                  rolling
-                  a ball down a lane; it's a complex dance of physics, mechanics, and human ingenuity.
-                </p>
-
-                <h3 class="blogSubHeading">The Anatomy of a Bowling Ball</h3>
-                <p>
-                  To the untrained eye, a bowling ball may appear as a simple, heavy sphere. In reality, each ball is a
-                  marvel
-                  of engineering. Modern bowling balls are designed with various core shapes and coverstock materials,
-                  each
-                  affecting how the ball behaves on the lane.
-                </p>
-                <p>
-                  Core Design: The core, or the innermost part of the ball, can vary greatly in shape and density. These
-                  variations influence the ball's rotation and trajectory. Some cores are symmetrical, providing a
-                  smooth,
-                  predictable roll, while asymmetrical cores can create more dynamic movement.
-                </p>
-                <p>
-                  Coverstock Material: The outer layer of the ball, known as the coverstock, is made from materials like
-                  urethane, reactive resin, or particle. Each type interacts differently with the lane's surface and oil
-                  patterns, affecting the ball's grip and hook potential.
-                </p>
-
-                <div class="text-center my-4">
-                  <a href="#" class="btn btn-primary">Read Full Article</a>
-                </div>
-
-                <div class="blog-post-tags mt-4">
-                  <i class="fas fa-tags me-2"></i>
-                  <a href="#" class="tag me-2">#Bowling</a>
-                  <a href="#" class="tag me-2">#BowlingTips</a>
-                  <a href="#" class="tag">#ScienceBehindBowling</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
-            <div class="card-body">
-              <h2 class="blog-post-title">Striking Success: Your Guide to Becoming a Better Bowler</h2>
-              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
-                <div>
-                  <span class="text-muted"><i class="far fa-calendar-alt"></i> December 4, 2023</span>
-                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Bronze Level Coach</span>
-                </div>
-                <div class="blog-post-share">
-                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-
-              <div class="blog-featured-image mb-4 text-center">
-                <img src="/assets/img/coachingMoment.jpg" class="img-fluid rounded" alt="Featured image"
-                  style="max-height: 400px; object-fit: contain;"
-                  onerror="this.src='https://via.placeholder.com/800x400?text=Striking+Success'">
-              </div>
-
-              <div class="blog-content">
-                <p>
-                  You've probably noticed a bunch of folks on social media asking the same question: "How do I level up
-                  my
-                  bowling game?" It's a common query, and you'll get a different answer depending on who you ask. But
-                  before we dive into the nitty-gritty, let's nail down what you're really after.
-                </p>
-                <p>
-                  I could tell you to just get better at throwing the ball, or I could suggest dropping a grand on
-                  all-new
-                  bowling gear, hoping for a miracle improvement. But honestly, it doesn't quite work like that.
-                </p>
-                <p>
-                  First off, let's get one thing straight: becoming a better bowler doesn't happen overnight. It's like
-                  any sport; it takes a ton of practice and repetition. Depending on where you're starting, you might
-                  even
-                  see your scores dip and feel a bit lost before you start seeing real progress. It's part of the game.
-                </p>
-
-                <div class="text-center my-4">
-                  <a href="#" class="btn btn-primary">Read Full Article</a>
-                </div>
-
-                <div class="blog-post-tags mt-4">
-                  <i class="fas fa-tags me-2"></i>
-                  <a href="#" class="tag me-2">#Coaching</a>
-                  <a href="#" class="tag me-2">#BowlingSkills</a>
-                  <a href="#" class="tag me-2">#SportsAdvice</a>
-                  <a href="#" class="tag">#BowlingForBeginners</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="blog-post card mb-4 border-0 shadow animate__animated animate__fadeIn">
-            <div class="card-body">
-              <h2 class="blog-post-title">Bowling in the Fast Lane: Navigating the Ever-Changing World of Bowling Tech
-              </h2>
-              <div class="blog-post-meta d-flex justify-content-between align-items-center mb-3">
-                <div>
-                  <span class="text-muted"><i class="far fa-calendar-alt"></i> January 13, 2023</span>
-                  <span class="ms-3 text-muted"><i class="far fa-user"></i> Jeff Rice - USBC Bronze Level Coach</span>
-                </div>
-                <div class="blog-post-share">
-                  <a href="#" class="text-muted me-2"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="text-muted me-2"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-
-              <div class="blog-featured-image mb-4 text-center">
-                <img src="/assets/img/new-balls-820-december2023.jpg" class="img-fluid rounded" alt="Featured image"
-                  style="max-height: 400px; object-fit: contain;"
-                  onerror="this.src='https://via.placeholder.com/800x400?text=Striking+Success'">
-              </div>
-
-              <div class="blog-content">
-                <p>
-                  In the dynamic world of bowling, keeping pace with technological advancements can be quite a
-                  challenge. It's
-                  like trying to catch a speeding train - new developments are constantly emerging. Imagine this: almost
-                  every
-                  month, we're seeing a fresh batch of bowling balls from various manufacturers. There's more - changes
-                  in the
-                  oil used on lanes, innovative gear for better ball release, wrist support, and perfecting the slide.
-                  It's a
-                  whirlwind of innovation, and you might wonder, "When does it all stop?"
-                </p>
-
-                <div class="text-center my-4">
-                  <a href="#" class="btn btn-primary">Read Full Article</a>
-                </div>
-
-                <div class="blog-post-tags mt-4">
-                  <i class="fas fa-tags me-2"></i>
-                  <a href="#" class="tag me-2">#BowlingTechnology</a>
-                  <a href="#" class="tag">#BowlingTips</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
+          <div id="blog-posts"></div>
           <!-- Pagination -->
           <nav aria-label="Blog pagination">
             <ul class="pagination justify-content-center">
@@ -481,8 +84,6 @@
                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
               </li>
               <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
               <li class="page-item">
                 <a class="page-link" href="#">Next</a>
               </li>
@@ -496,18 +97,16 @@
             <!-- About Author -->
             <div class="card mb-4 border-0 shadow">
               <div class="card-body text-center">
-                <img src="/assets/img/CoachingLogoNoBg.png" alt="Jeff Rice" class="rounded-circle img-fluid mb-3"
-                  style="max-width: 150px;">
+                <img src="/assets/img/CoachingLogoNoBg.png" alt="Jeff Rice" class="rounded-circle img-fluid mb-3" style="max-width: 150px;">
                 <h3 class="h4">Jeff Rice</h3>
                 <p class="text-muted">USBC Silver Level Coach</p>
                 <p>Sharing my passion for bowling through coaching, competition, and community.</p>
                 <div class="d-flex justify-content-center">
-                  <a href="#" class="btn btn-sm btn-outline-primary me-2">About Me</a>
+                  <a href="/pages/philosophy.html" class="btn btn-sm btn-outline-primary me-2">About Me</a>
                   <a href="/pages/contact.html" class="btn btn-sm btn-primary">Book a Lesson</a>
                 </div>
               </div>
             </div>
-
             <!-- Popular Posts -->
             <div class="card mb-4 border-0 shadow">
               <div class="card-header bg-primary text-white">
@@ -516,37 +115,24 @@
               <div class="card-body">
                 <div class="popular-post d-flex mb-3">
                   <div class="flex-shrink-0">
-                    <img src="/assets/img/placeholder-blog-1.jpg" alt="Popular post" class="rounded" width="60"
-                      height="60" style="object-fit: cover;">
+                    <img src="/assets/img/AddysonEarnedPlaques.jpg" alt="Popular post" class="rounded" width="60" height="60" style="object-fit: cover;">
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <h4 class="h6 mb-1">Rolling Through Indiana: Milestones and Memories</h4>
                     <p class="text-muted small mb-0">November 14, 2024</p>
                   </div>
                 </div>
-                <div class="popular-post d-flex mb-3">
-                  <div class="flex-shrink-0">
-                    <img src="/assets/img/placeholder-blog-2.jpg" alt="Popular post" class="rounded" width="60"
-                      height="60" style="object-fit: cover;">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h4 class="h6 mb-1">The Hidden Complexity of Bowling</h4>
-                    <p class="text-muted small mb-0">July 3, 2024</p>
-                  </div>
-                </div>
                 <div class="popular-post d-flex">
                   <div class="flex-shrink-0">
-                    <img src="/assets/img/placeholder-blog-3.jpg" alt="Popular post" class="rounded" width="60"
-                      height="60" style="object-fit: cover;">
+                    <img src="/assets/img/five_seven_split.jpg" alt="Popular post" class="rounded" width="60" height="60" style="object-fit: cover;">
                   </div>
                   <div class="flex-grow-1 ms-3">
-                    <h4 class="h6 mb-1">Striking Success: Your Guide to Becoming a Better Bowler</h4>
-                    <p class="text-muted small mb-0">December 4, 2023</p>
+                    <h4 class="h6 mb-1">Why Spare Shooting Deserves More Attention</h4>
+                    <p class="text-muted small mb-0">March 31, 2025</p>
                   </div>
                 </div>
               </div>
             </div>
-
             <!-- Categories -->
             <div class="card mb-4 border-0 shadow">
               <div class="card-header bg-primary text-white">
@@ -556,28 +142,19 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     Coaching Tips
-                    <span class="badge bg-primary rounded-pill">8</span>
+                    <span class="badge bg-primary rounded-pill">1</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     Tournament Stories
-                    <span class="badge bg-primary rounded-pill">5</span>
+                    <span class="badge bg-primary rounded-pill">1</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     Technique
-                    <span class="badge bg-primary rounded-pill">12</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Equipment
-                    <span class="badge bg-primary rounded-pill">7</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Personal Journey
-                    <span class="badge bg-primary rounded-pill">3</span>
+                    <span class="badge bg-primary rounded-pill">1</span>
                   </li>
                 </ul>
               </div>
             </div>
-
             <!-- Newsletter Signup -->
             <div class="card mb-4 border-0 shadow">
               <div class="card-header bg-primary text-white">
@@ -593,7 +170,6 @@
                 </form>
               </div>
             </div>
-
             <!-- Tags Cloud -->
             <div class="card border-0 shadow">
               <div class="card-header bg-primary text-white">
@@ -601,15 +177,12 @@
               </div>
               <div class="card-body">
                 <div class="tags-cloud">
-                  <a href="#" class="tag-cloud-link">#Bowling</a>
-                  <a href="#" class="tag-cloud-link">#CoachingTips</a>
-                  <a href="#" class="tag-cloud-link">#BowlingTechnology</a>
-                  <a href="#" class="tag-cloud-link">#TournamentPrep</a>
                   <a href="#" class="tag-cloud-link">#BowlingJourney</a>
-                  <a href="#" class="tag-cloud-link">#YouthBowling</a>
+                  <a href="#" class="tag-cloud-link">#BowlingMemories</a>
+                  <a href="#" class="tag-cloud-link">#SportsParenting</a>
+                  <a href="#" class="tag-cloud-link">#SpareShootingTips</a>
                   <a href="#" class="tag-cloud-link">#BowlingFundamentals</a>
-                  <a href="#" class="tag-cloud-link">#SpareShots</a>
-                  <a href="#" class="tag-cloud-link">#MentalGame</a>
+                  <a href="#" class="tag-cloud-link">#CoachingAdvice</a>
                 </div>
               </div>
             </div>
@@ -621,7 +194,6 @@
 
   <div id="footer"></div>
   <script>
-    // Load the footer.html content into the #footer div using JavaScript
     fetch("/components/footer.html")
       .then((response) => response.text())
       .then((data) => {
@@ -632,6 +204,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
-
 </html>

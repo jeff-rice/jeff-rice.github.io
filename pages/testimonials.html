@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="J.Rice Coaching testimonials - Share your bowling coaching experience">
+  <meta name="keywords" content="Bowling coach testimonials, Jeff Rice reviews, Bowling coaching feedback">
+  <meta name="author" content="Jeff Rice">
+  <title>Testimonials | Jeff Rice Coaching</title>
+  <script src="https://kit.fontawesome.com/558450d71d.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4P4JECD0D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z4P4JECD0D');
+  </script>
+</head>
+
+<body>
+  <header>
+    <img src="/assets/img/CoachingLogoNoBg.png" alt="Coaching Logo" height="auto" width="250">
+  </header>
+  <div id="navbar"></div>
+  <script>
+    // Load the navbar.html content into the #navbar div using JavaScript
+    fetch("/components/navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+  </script>
+
+  <!-- Hero Section -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeIn">Student Testimonials</h1>
+      <p class="lead mt-3 mb-4 animate__animated animate__fadeIn animate__delay-1s">Building Success Stories, One Frame at a Time</p>
+    </div>
+  </section>
+
+  <main class="py-5">
+    <div class="container">
+      <!-- Dynamic Testimonials Container -->
+      <div id="testimonials-container">
+        <!-- Testimonials will be loaded here dynamically -->
+      </div>
+
+      <!-- Share Your Story Section -->
+      <section id="feedback-form" class="py-5 bg-light rounded">
+        <div class="container">
+          <h2 class="text-center mb-4">Share Your Coaching Experience</h2>
+          <p class="text-center lead mb-5">Your feedback is valuable to me and future students</p>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="card border-0 shadow">
+                <div class="card-body p-4 p-md-5">
+                  <form id="testimonialForm" action="https://formspree.io/f/xjkwaode" method="POST">
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <small class="text-muted">We'll never share your email publicly</small>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="category" class="form-label">I am a...</label>
+                      <select class="form-select" id="category" name="category" required>
+                        <option value="">Select one...</option>
+                        <option value="Youth Bowler">Youth Bowler</option>
+                        <option value="Parent of Youth Bowler">Parent of Youth Bowler</option>
+                        <option value="Adult Beginner">Adult Beginner</option>
+                        <option value="League Bowler">League Bowler</option>
+                        <option value="Tournament Bowler">Tournament Bowler</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="testimonial" class="form-label">Your Experience</label>
+                      <textarea class="form-control" id="testimonial" name="testimonial" rows="5"
+                        placeholder="Tell us about your experience with J.Rice Coaching..." required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label d-block">Rate Your Experience</label>
+                      <div class="rating-stars">
+                        <div class="btn-group" role="group" aria-label="Rating">
+                          <input type="radio" class="btn-check" name="rating" id="rating1" value="1" autocomplete="off">
+                          <label class="btn btn-outline-warning" for="rating1"><i class="fas fa-star"></i></label>
+
+                          <input type="radio" class="btn-check" name="rating" id="rating2" value="2" autocomplete="off">
+                          <label class="btn btn-outline-warning" for="rating2"><i class="fas fa-star"></i></label>
+
+                          <input type="radio" class="btn-check" name="rating" id="rating3" value="3" autocomplete="off">
+                          <label class="btn btn-outline-warning" for="rating3"><i class="fas fa-star"></i></label>
+
+                          <input type="radio" class="btn-check" name="rating" id="rating4" value="4" autocomplete="off">
+                          <label class="btn btn-outline-warning" for="rating4"><i class="fas fa-star"></i></label>
+
+                          <input type="radio" class="btn-check" name="rating" id="rating5" value="5" autocomplete="off" checked>
+                          <label class="btn btn-outline-warning" for="rating5"><i class="fas fa-star"></i></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="permission" name="permission" value="true">
+                        <label class="form-check-label" for="permission">
+                          I give permission for J.Rice Coaching to use my testimonial on the website
+                        </label>
+                      </div>
+                      <small class="text-muted">If unchecked, your feedback will be kept private for internal use only.</small>
+                    </div>
+                    
+                    <!-- Hidden field to identify form in Formspree -->
+                    <input type="hidden" name="_subject" value="New Testimonial Submission">
+                    
+                    <div class="text-center mt-4">
+                      <button type="submit" class="btn btn-primary btn-lg px-5">Submit Testimonial</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Success Message (hidden by default) -->
+      <div id="successMessage" class="alert alert-success text-center mt-4" style="display: none;">
+        <h4 class="alert-heading">Thank You!</h4>
+        <p>Your testimonial has been submitted successfully. We appreciate your feedback!</p>
+      </div>
+
+      <!-- Special Offer -->
+      <section class="mt-5">
+        <div class="alert alert-info text-center">
+          <h4><i class="fas fa-gift"></i> Special Thank You</h4>
+          <p class="mb-0">Submit a testimonial and receive 10% off your next lesson package!</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    // Load the footer.html content into the #footer div using JavaScript
+    fetch("/components/footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  
+  <script>
+    // Load and display testimonials
+    async function loadTestimonials() {
+      try {
+        const response = await fetch('/assets/testimonials.json');
+        const testimonials = await response.json();
+        
+        // Filter to only show testimonials with permission
+        const approvedTestimonials = testimonials.filter(t => t.permission === true);
+        
+        const container = document.getElementById('testimonials-container');
+        
+        if (approvedTestimonials.length === 0) {
+          // Show "Be our first success story" message
+          container.innerHTML = `
+            <section class="mb-5">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <div class="card border-0 shadow">
+                    <div class="card-body p-4 text-center">
+                      <i class="fas fa-bowling-ball fa-3x text-primary mb-3"></i>
+                      <h3>Be One of Our First Success Stories!</h3>
+                      <p class="lead">As a newly established coaching service, I'm currently building my testimonial collection.</p>
+                      <p>If you've had a lesson with me, I'd love to hear about your experience. Your feedback helps me improve and helps other bowlers make informed decisions.</p>
+                      <div class="mt-4">
+                        <a href="#feedback-form" class="btn btn-primary btn-lg">Share Your Experience</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          `;
+        } else {
+          // Display approved testimonials
+          let html = '<section class="mb-5"><div class="row">';
+          
+          approvedTestimonials.forEach((testimonial, index) => {
+            html += `
+              <div class="col-lg-6 mb-4">
+                <div class="card h-100 border-0 shadow animate__animated animate__fadeIn" style="animation-delay: ${index * 0.2}s;">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                      <div class="testimonial-rating text-warning me-3">
+                        ${generateStars(testimonial.rating)}
+                      </div>
+                      <span class="text-muted">${testimonial.rating}.0</span>
+                    </div>
+                    <p class="fst-italic mb-4">"${testimonial.testimonial}"</p>
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <h5 class="mb-0">${testimonial.name}</h5>
+                        <p class="text-muted small mb-0">${testimonial.category}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+          
+          html += '</div></section>';
+          container.innerHTML = html;
+        }
+      } catch (error) {
+        console.error('Error loading testimonials:', error);
+        // Show fallback message
+        document.getElementById('testimonials-container').innerHTML = `
+          <div class="text-center mb-5">
+            <p>Testimonials are being updated. Please check back soon!</p>
+          </div>
+        `;
+      }
+    }
+    
+    // Generate star rating HTML
+    function generateStars(rating) {
+      let stars = '';
+      for (let i = 0; i < 5; i++) {
+        stars += i < rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+      }
+      return stars;
+    }
+    
+    // Load testimonials when page loads
+    document.addEventListener('DOMContentLoaded', loadTestimonials);
+    
+    // Handle testimonial form submission with Formspree
+    document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+      // Don't prevent default - let Formspree handle the submission
+      
+      // Show a loading message (optional)
+      const submitButton = this.querySelector('button[type="submit"]');
+      const originalText = submitButton.innerHTML;
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitButton.disabled = true;
+      
+      // Re-enable button after a delay (in case of errors)
+      setTimeout(() => {
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+      }, 3000);
+    });
+    
+    // Handle Formspree redirect (optional - for AJAX submission)
+    // If you want to stay on the same page, you can use Formspree's AJAX method
+    const form = document.getElementById('testimonialForm');
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+      
+      try {
+        const response = await fetch(event.target.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Show success message
+          document.getElementById('successMessage').style.display = 'block';
+          form.reset();
+          document.getElementById('rating5').checked = true;
+          
+          // Scroll to success message
+          document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+          
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            document.getElementById('successMessage').style.display = 'none';
+          }, 5000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        alert('There was a problem submitting your testimonial. Please try again.');
+      }
+    }
+    
+    form.addEventListener('submit', handleSubmit);
+  </script>
+</body>
+
+</html>
