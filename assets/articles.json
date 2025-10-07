@@ -48,8 +48,26 @@
             "#CoachingMatters",
             "#SupportYouthSport"
         ],
-        "isFeatured": true,
+        "isFeatured": false,
         "readTime": "4 min",
+        "views": "0 views"
+    },
+
+    {
+        "id": "stop-searching-for-quick-fixes",
+        "title": "Stop Searching for Quick Fixes - Start Seeking Real Coaching",
+        "date": "October 6, 2025",
+        "author": "Jeff Rice - USBC Silver Level Coach",
+        "image": "/assets/img/coachingMoment.jpg",
+        "alt": "Coaching Moment",
+        "content": "<p class=\"lead\"><em>Stop Searching for Quick Fixes - Start Seeking Real Coaching</em></p>",
+        "tags": [
+            "#BowlingCoach",
+            "#BowlingAdvice",
+            "#CoachingMatters"
+        ],
+        "isFeatured": true,
+        "readTime": "2 min",
         "views": "0 views"
     }
 ]
