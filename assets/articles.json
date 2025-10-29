@@ -12,7 +12,7 @@
             "#BowlingFundamentals",
             "#CoachingAdvice"
         ],
-        "isFeatured": true,
+        "isFeatured": false,
         "readTime": "5 min",
         "views": "120 views"
     },
