@@ -404,7 +404,9 @@ footer h5 {
     margin-bottom: 20px;
 }
 
-footer p, footer a, footer li {
+footer p,
+footer a,
+footer li {
     color: var(--highlight-white) !important;
 }
 
@@ -1140,5 +1142,161 @@ blockquote.mjQuote {
     .service-card .row .col-md-8 {
         padding-left: 15px;
         /* Reset padding on mobile */
+    }
+}
+
+/* Booking Options Styles */
+.booking-options {
+    margin: 3rem 0;
+}
+
+.booking-card {
+    background-color: var(--highlight-white);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.booking-card.consultation {
+    border: 3px solid var(--primary-blue);
+}
+
+.booking-card.lesson {
+    border: 3px solid var(--accent-orange);
+}
+
+.booking-card-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.booking-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.booking-card.consultation .booking-card-icon {
+    color: var(--primary-blue);
+}
+
+.booking-card.lesson .booking-card-icon {
+    color: var(--accent-orange);
+}
+
+.booking-card h3 {
+    color: var(--dark-gray);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.booking-label {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.booking-card.consultation .booking-label {
+    color: var(--primary-blue);
+}
+
+.booking-card.lesson .booking-label {
+    color: var(--accent-orange);
+}
+
+.booking-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+.booking-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.booking-card ul li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.booking-card ul li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+}
+
+.booking-card.lesson ul li::before {
+    color: var(--accent-orange);
+}
+
+.btn-booking {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-consultation {
+    background-color: var(--primary-blue);
+    color: var(--highlight-white);
+}
+
+.btn-consultation:hover {
+    background-color: var(--dark-gray);
+    color: var(--highlight-white);
+}
+
+.btn-lesson {
+    background-color: var(--accent-orange);
+    color: var(--highlight-white);
+}
+
+.btn-lesson:hover {
+    background-color: var(--primary-blue);
+    color: var(--highlight-white);
+}
+
+.booking-note {
+    background-color: rgba(0, 83, 156, 0.05);
+    border-left: 4px solid var(--primary-blue);
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+}
+
+.booking-note p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+}
+
+@media (max-width: 768px) {
+    .booking-card {
+        margin-bottom: 2rem;
+    }
+
+    .booking-card h3 {
+        font-size: 1.5rem;
     }
 }
