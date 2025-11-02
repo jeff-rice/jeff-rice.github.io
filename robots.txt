@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow unused/development pages
+Disallow: /pages/login.html
+Disallow: /pages/register.html
+Disallow: /pages/dashboard.html
+
+# Sitemap location
+Sitemap: https://jricecoaching.com/sitemap.xml
