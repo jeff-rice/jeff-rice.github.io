@@ -56,20 +56,13 @@
         <a href="/pages/contact.html" class="btn btn-primary btn-lg">Book Your Free Consultation</a>
       </div>
 
-      <p class="text-center mb-5"><strong>
-        **All pricing below assumes lane rental at Expo Bowl in Indianapolis is included. On weekends, lane rental is
-        typically <strong><em>$60/hour per lane</em></strong>. If you already have lane rental covered (via league, membership,
-        or a pre-paid practice plan) and we won’t be paying the center for your lane, ask about my BYOL (“Bring Your
-        Own Lane Time”) coaching-only rates.
-        </strong></p>
-
       <!-- Individual Lessons - Main Focus -->
       <h2 class="section-title">Individual Lessons</h2>
       <div class="row mb-5">
         <div class="col-lg-3 col-md-6">
           <div class="pricing-card">
             <h3>Standard Lesson</h3>
-            <p class="price">$130</p>
+            <p class="price">$130*</p>
             <ul class="features">
               <li>1-Hour Session</li>
               <li>One-on-One Coaching</li>
@@ -83,7 +76,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="pricing-card">
             <h3>Student Rate</h3>
-            <p class="price">$120</p>
+            <p class="price">$120*</p>
             <p class="text-muted small">High School &amp; Below</p>
             <ul class="features">
               <li>1-Hour Session</li>
@@ -98,7 +91,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="pricing-card highlighted">
             <h3>Video Analysis</h3>
-            <p class="price">$160</p>
+            <p class="price">$160*</p>
             <ul class="features">
               <li>1-Hour Session</li>
               <li>Frame-by-Frame Review</li>
@@ -112,7 +105,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="pricing-card">
             <h3>Student + Video</h3>
-            <p class="price">$150</p>
+            <p class="price">$150*</p>
             <p class="text-muted small">High School &amp; Below</p>
             <ul class="features">
               <li>1-Hour Session</li>
@@ -125,6 +118,7 @@
         </div>
       </div>
 
+
       <!-- Package Deals -->
       <h2 class="section-title">Multi-Lesson Packages</h2>
       <p class="text-center mb-4">Commit to improvement and save over booking single sessions.</p>
@@ -132,7 +126,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="pricing-card">
             <h3>5-Lesson Package</h3>
-            <p class="price">$600</p>
+            <p class="price">$600**</p>
             <p class="text-success small">Save $50 vs. 5 individual standard lessons</p>
             <ul class="features">
               <li>5 Individual Lessons</li>
@@ -147,7 +141,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="pricing-card">
             <h3>Student 5-Pack</h3>
-            <p class="price">$550</p>
+            <p class="price">$550**</p>
             <p class="text-success small">Save $50 vs. 5 individual student lessons</p>
             <ul class="features">
               <li>5 Student Lessons</li>
@@ -162,7 +156,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="pricing-card">
             <h3>Video 3-Pack</h3>
-            <p class="price">$450</p>
+            <p class="price">$450**</p>
             <p class="text-success small">Save $30 vs. 3 individual video sessions</p>
             <ul class="features">
               <li>3 Video Analysis Sessions</li>
@@ -194,6 +188,15 @@
           </div>
         </div>
       </div>
+      <hr>
+
+      <p class="text-center mb-5">
+        <strong>*All pricing above assumes lane rental at Expo Bowl in Indianapolis is included. On weekends, lane rental is
+        typically <strong><em>$60/hour per lane</em></strong>. Already have lane time covered through league perks, free games, or paying the center yourself? Ask about my BYOL coaching-only rate.</strong>
+      </p>
+      <p class="text-center mb-5">
+        <strong>**Package deals and duo lessons are not eligible for BYOL coaching-only rates.</strong>
+      </p>
 
       <!-- Additional Options -->
       <div class="alert alert-info text-center mt-5" role="alert">
@@ -201,5 +204,36 @@
         <p>
           <strong>Bring Your Own Lane Time (BYOL)?</strong>
           If you already have lane rental covered (via league, membership, or pre-paid practice time) and we won’t be
+          paying the center for your lane, you just pay my coaching fee:
+          <br />
+          <strong>$70/hour for adults</strong> &middot;
+          <strong>$60/hour for students (high school &amp; below)</strong>.
+          Mention <strong>"BYOL"</strong> when you book to use this option.
+          <span class="d-block mt-2 text-muted small">Applies to individual lessons only.</span>
+        </p>
+        <hr>
+        <p class="mb-0">
+          <strong>Looking for specialized clinics or workshops?</strong>
+          I occasionally partner with other local coaches for special events. Contact me to be added to our clinic
+          notification list.
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <div id="footer"></div>
+  <script>
+    // Load the footer.html content into the #footer div using JavaScript
+    fetch("/components/footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
