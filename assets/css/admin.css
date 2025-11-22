@@ -1,0 +1,94 @@
+/* Admin page specific styles moved from inline <style> in pages/admin.html */
+
+.login-container {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.dashboard-container {
+  display: none;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-scheduled {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.status-completed {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.status-no-show {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.status-rescheduled {
+  background-color: #fff3cd;
+  color: #664d03;
+}
+
+.status-cancelled {
+  background-color: #e2e3e5;
+  color: #41464b;
+}
+
+.eligible-yes {
+  color: #198754;
+  font-weight: bold;
+}
+
+.eligible-no {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.btn-action {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  margin: 0.1rem;
+}
+
+.search-box {
+  max-width: 300px;
+}
+
+.loading-spinner {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+
+.modal-body .form-label {
+  font-weight: 500;
+}
+
+#logoutBtn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
