@@ -379,7 +379,7 @@ button.btn:hover {
 }
 
 #main-content {
-    display: none;
+    display: block;
 }
 
 /* ============================================
