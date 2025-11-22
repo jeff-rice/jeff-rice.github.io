@@ -750,6 +750,18 @@ button.btn:hover {
     margin-bottom: 30px;
 }
 
+/* Make pricing cards equal height and keep CTA buttons aligned */
+#pricing .row > [class*="col-"] {
+    display: flex;
+}
+
+#pricing .pricing-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
 #pricing .pricing-card.highlighted {
     border-color: var(--primary-blue);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -1284,6 +1296,22 @@ footer a {
 footer a:hover {
     color: var(--accent-orange) !important;
     text-decoration: none;
+}
+
+/* Discreet admin link in footer */
+.admin-link {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.85rem;
+    margin-left: 8px;
+    text-decoration: none;
+    opacity: 0.95;
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.admin-link:hover,
+.admin-link:focus {
+    color: var(--accent-orange);
+    opacity: 1;
 }
 
 .footer-section {
